@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+/* Single dark theme, site-wide — per a reference screenshot the user
+   supplied mid-build, which overrides the direction doc's "light-mode-first"
+   text wherever the two conflict (confirmed explicitly). Warm near-black
+   ground, off-white text, a restrained warm amber accent (not the original
+   build's more saturated orange, not the doc's cyan) — no per-section
+   [data-theme] switching, no OS-preference branch, no manual toggle. */
+:root {
+  --cw-bg: #0a0908;
+  --cw-bg-secondary: #100e0c;
+  --cw-surface: #17140f;
+  --cw-text: #f5f3ef;
+  --cw-text-secondary: #8c887e;
+  --cw-border: rgba(255, 255, 255, 0.1);
+  --cw-border-strong: rgba(255, 255, 255, 0.22);
+  --cw-accent: #e8a671;
+  --cw-accent-text: #f0b37e;
+  --cw-accent-dim: rgba(232, 166, 113, 0.35);
+
+  --cw-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cw-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --cw-container: min(1600px, 100% - 4rem);
+  --cw-gutter: clamp(1rem, 2vw, 1.5rem);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--cw-bg);
+  --color-bg-secondary: var(--cw-bg-secondary);
+  --color-surface: var(--cw-surface);
+  --color-text: var(--cw-text);
+  --color-text-secondary: var(--cw-text-secondary);
+  --color-border: var(--cw-border);
+  --color-border-strong: var(--cw-border-strong);
+  --color-accent: var(--cw-accent-text);
+  --color-accent-bright: var(--cw-accent);
+  --color-accent-dim: var(--cw-accent-dim);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+
+  --ease-cw: var(--cw-ease);
+  --ease-cw-in-out: var(--cw-ease-in-out);
+}
+
+html {
+  background: var(--cw-bg);
+}
+
+body {
+  position: relative;
+  background: var(--cw-bg);
+  color: var(--cw-text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--cw-accent-text);
+  color: var(--cw-bg);
+}
+
+/* Editorial 12/8/4-column grid. */
+.cw-container {
+  width: var(--cw-container);
+  margin-inline: auto;
+}
+
+.cw-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--cw-gutter);
+}
+
+@media (min-width: 48rem) {
+  .cw-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .cw-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Custom cursor — desktop (fine pointer) only; native cursor stays on touch.
+   Toned down from the previous build: a small dot plus a barely-visible
+   ring, never the visual centerpiece (see custom-cursor.tsx). */
+@media (hover: hover) and (pointer: fine) {
+  .cw-cursor-active,
+  .cw-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+.cw-focus-ring:focus-visible {
+  outline: 1px solid var(--cw-accent-text);
+  outline-offset: 4px;
+}
+
+/* Stroke-only headline treatment — kept from the previous system (not on the
+   doc's remove list), re-themed to the new ink/cyan palette. Used sparingly,
+   never as the default headline style. */
+.cw-outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--cw-text);
+  paint-order: stroke fill;
+}
+.cw-outline-text--accent {
+  -webkit-text-stroke: 1.5px var(--cw-accent-text);
+}
+
+/* Small plus-mark coordinate tick — kept, re-themed. */
+.cw-tick {
+  position: relative;
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+}
+.cw-tick::before,
+.cw-tick::after {
+  content: "";
+  position: absolute;
+  background: var(--cw-border-strong);
+}
+.cw-tick::before {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+.cw-tick::after {
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+/* GenerativeGlow — "eclipse" variant: a dark disk with a soft glowing rim
+   segment, built from a conic-gradient ring (masked to just the ring, not
+   the whole disk) plus a blurred halo behind it. All CSS, no canvas. */
+.cw-glow-disk {
+  background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.035), transparent 60%), var(--cw-bg-secondary);
+  box-shadow: inset 0 0 min(80px, 8vw) rgba(0, 0, 0, 0.6);
+}
+
+.cw-glow-rim {
+  border: 2px solid transparent;
+  background: conic-gradient(from 190deg, transparent 0deg, transparent 190deg, var(--cw-accent-dim) 230deg, var(--cw-accent) 265deg, var(--cw-accent-dim) 300deg, transparent 330deg, transparent 360deg) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: blur(4px);
+  animation: cw-glow-rotate 60s linear infinite;
+}
+
+.cw-glow-halo {
+  background: radial-gradient(circle at 68% 38%, var(--cw-accent-dim), transparent 55%);
+  filter: blur(min(50px, 5vw));
+  opacity: 0.7;
+  animation: cw-glow-rotate 60s linear infinite reverse;
+}
+
+@keyframes cw-glow-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* GenerativeGlow — "nebula" variant: three overlapping blurred blobs,
+   drifting slowly. Reused for Work's shared preview panel. */
+.cw-nebula-blob {
+  filter: blur(min(70px, 8vw));
+  opacity: 0.55;
+  animation: cw-nebula-drift 24s ease-in-out infinite alternate;
+}
+.cw-nebula-blob--a {
+  inset: -10% 40% 40% -10%;
+  background: radial-gradient(circle, var(--cw-accent), transparent 70%);
+  animation-duration: 26s;
+}
+.cw-nebula-blob--b {
+  inset: 20% -15% -15% 30%;
+  background: radial-gradient(circle, var(--cw-accent-dim), transparent 70%);
+  animation-duration: 32s;
+  animation-delay: -8s;
+}
+.cw-nebula-blob--c {
+  inset: 35% 20% -20% -20%;
+  background: radial-gradient(circle, var(--cw-bg-secondary), transparent 65%);
+  opacity: 0.8;
+  animation-duration: 38s;
+  animation-delay: -14s;
+}
+
+@keyframes cw-nebula-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(4%, -5%) scale(1.08);
+  }
+}
+
+/* Six-armed entity nav objects (entity/nav-circle.tsx). Border/label/arrow
+   color is driven by [data-active], toggled imperatively from the stage's
+   rAF loop rather than a React prop — see nav-circle.tsx for why. */
+.cw-nav-circle {
+  border-color: var(--cw-border);
+  background: rgba(10, 9, 8, 0.35);
+  backdrop-filter: blur(2px);
+  transition: border-color 0.3s var(--cw-ease);
+}
+.cw-nav-circle[data-active="true"] {
+  border-color: var(--cw-accent-text);
+}
+.cw-nav-circle-label,
+.cw-nav-circle-arrow {
+  transition: color 0.3s var(--cw-ease);
+}
+.cw-nav-circle[data-active="true"] .cw-nav-circle-label,
+.cw-nav-circle[data-active="true"] .cw-nav-circle-arrow {
+  color: var(--cw-accent-text);
+}
+
+/* Entity stage — the drag surface behind the 3D canvas + nav circles. */
+.cw-entity-stage {
+  touch-action: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
