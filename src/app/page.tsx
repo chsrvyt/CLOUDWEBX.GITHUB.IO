@@ -1,5 +1,6 @@
 import { Hero } from "@/components/hero/hero";
 import { Introduction } from "@/components/shared/introduction";
+import { CampusPreview } from "@/components/campus/campus-preview";
 import { CapabilitiesList } from "@/components/capabilities/capabilities-list";
 import { WorkList } from "@/components/work/work-list";
 import { SystemSection } from "@/components/systems/system-section";
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <Hero />
       <Introduction />
+      <CampusPreview />
       <CapabilitiesList />
       <WorkList />
 
