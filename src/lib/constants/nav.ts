@@ -14,7 +14,7 @@ export const CONTACT_LINK = { index: "06", label: "Contact", href: "#contact" } 
 export const SITE = {
   name: "CloudWeb",
   tagline: "AI / SOFTWARE / SECURITY / SYSTEMS",
-  email: "hello@cloudwebx.in",
+  email: "cloudwebtech7@gmail.com",
   year: new Date().getFullYear(),
 } as const;
 

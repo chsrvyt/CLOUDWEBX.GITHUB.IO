@@ -108,7 +108,9 @@ export function ContactSection() {
             )}
           </div>
 
-          <div className="col-span-4 mt-14 md:col-span-8 lg:col-span-2 lg:col-start-11 lg:mt-0">
+          {/* Three columns, not two: a real address is wider than the
+              placeholder this column was sized for and spilled past its edge. */}
+          <div className="col-span-4 mt-14 md:col-span-8 lg:col-span-3 lg:col-start-10 lg:mt-0">
             <p className="font-mono text-[10px] tracking-[0.2em] text-text-secondary uppercase">Or write to</p>
             <a href={`mailto:${SITE.email}`} className="cw-focus-ring mt-2 block rounded font-mono text-sm text-text underline decoration-border-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent">
               {SITE.email}
