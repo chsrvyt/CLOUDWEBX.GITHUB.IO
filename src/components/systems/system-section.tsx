@@ -16,6 +16,7 @@ export function SystemSection({
   fieldVariant,
   fieldLabel,
   reverse = false,
+  tone = "base",
   children,
 }: {
   id: string;
@@ -25,10 +26,13 @@ export function SystemSection({
   fieldVariant?: FieldVariant;
   fieldLabel?: string;
   reverse?: boolean;
+  /** `deep` drops the section onto the darker ground, so a chapter can be set
+   *  apart by tone instead of by yet another background graphic (doc §06). */
+  tone?: "base" | "deep";
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="relative overflow-hidden border-t border-border py-24 md:py-32">
+    <section id={id} className={cn("relative overflow-hidden border-t border-border py-24 md:py-32", tone === "deep" && "bg-bg-deep")}>
       {fieldVariant && (
         <div className="absolute inset-0 -z-10 opacity-30">
           <CloudField variant={fieldVariant} interactive={false} />

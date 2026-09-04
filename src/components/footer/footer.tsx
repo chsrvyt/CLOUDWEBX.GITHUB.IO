@@ -1,6 +1,7 @@
 import { SmoothLink } from "@/components/shared/smooth-link";
 import { LogoMark } from "@/components/shared/logo-mark";
 import { NAV_LINKS, CONTACT_LINK, SITE, PILLARS } from "@/lib/constants/nav";
+import { CAMPUS } from "@/lib/constants/campus";
 
 export function Footer() {
   return (
@@ -17,6 +18,15 @@ export function Footer() {
                 <li key={p} className="font-mono text-[11px] tracking-[0.15em] text-text-secondary uppercase">{p}</li>
               ))}
             </ul>
+            <a
+              href={CAMPUS.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cw-focus-ring group mt-6 inline-flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text-secondary uppercase transition-colors hover:text-accent"
+            >
+              {CAMPUS.domain}
+              <span className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+            </a>
           </div>
 
           <div className="col-span-4 mt-10 md:col-span-2 md:mt-0">
