@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { WORK_ITEMS } from "@/lib/constants/work";
-import { GenerativeGlow } from "@/components/shared/generative-glow";
+import { WorkSketch } from "@/components/work/work-sketch";
 import { Reveal, RevealLines } from "@/lib/animations/reveal";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
  *  fabricated client work. */
 export function WorkList() {
   const [open, setOpen] = useState<number | null>(0);
+  /** The panel always shows something — closing every row shouldn't blank it. */
+  const shown = WORK_ITEMS[open ?? 0];
 
   return (
     <section id="work" className="cw-container border-t border-border py-24 md:py-32">
@@ -51,10 +53,10 @@ export function WorkList() {
                       <div className="grid overflow-hidden transition-[grid-template-rows] duration-500 ease-[var(--cw-ease)]" style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}>
                         <div className="min-h-0">
                           <p className="max-w-md pt-4 pb-1 text-sm leading-relaxed text-text-secondary">{item.description}</p>
-                          <span className="mt-2 inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-text uppercase">
-                            View project
-                            <span className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1">↗</span>
-                          </span>
+                          {/* No "view project ↗" here: these are labelled
+                              concepts with no case study behind them, and an
+                              arrow glyph promises a destination that does not
+                              exist. */}
                         </div>
                       </div>
                     </span>
@@ -74,8 +76,15 @@ export function WorkList() {
         </div>
 
         <div className="col-span-4 mt-14 hidden md:col-span-8 md:block lg:col-span-4 lg:col-start-9 lg:mt-0">
-          <div className="sticky top-32 aspect-[4/5] overflow-hidden rounded-sm border border-border bg-surface/40">
-            <GenerativeGlow variant="nebula" className="h-full w-full" />
+          {/* One shared panel showing the shape of whichever project is open,
+              rather than a decorative gradient that says nothing about them. */}
+          <div className="sticky top-32 overflow-hidden rounded-sm border border-border bg-bg/60">
+            <p className="border-b border-border px-5 py-3 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase">
+              {shown.index} · {shown.tags}
+            </p>
+            <div className="aspect-[4/5] p-5">
+              <WorkSketch sketch={shown.sketch} title={shown.title} />
+            </div>
           </div>
         </div>
       </div>

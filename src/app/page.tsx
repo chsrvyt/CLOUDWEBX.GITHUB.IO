@@ -4,14 +4,14 @@ import { CampusPreview } from "@/components/campus/campus-preview";
 import { CapabilitiesList } from "@/components/capabilities/capabilities-list";
 import { WorkList } from "@/components/work/work-list";
 import { SystemSection } from "@/components/systems/system-section";
-import { FlowDiagram } from "@/components/systems/flow-diagram";
+import { AgentLoopDiagram } from "@/components/systems/agent-loop-diagram";
+import { LayerDiagram } from "@/components/systems/layer-diagram";
 import { SecurityDiagram } from "@/components/systems/security-diagram";
 import { ApproachTimeline } from "@/components/approach/approach-timeline";
 import { Philosophy } from "@/components/philosophy/philosophy";
 import { About } from "@/components/about/about";
 import { ContactSection } from "@/components/contact/contact-form";
 import { Footer } from "@/components/footer/footer";
-import { AGENT_LOOP, SYSTEMS_PREVIEW } from "@/lib/constants/systems";
 
 export default function Home() {
   return (
@@ -30,7 +30,7 @@ export default function Home() {
         fieldVariant="ai"
         fieldLabel="Intelligence"
       >
-        <FlowDiagram steps={AGENT_LOOP} loop />
+        <AgentLoopDiagram />
       </SystemSection>
 
       <SystemSection
@@ -40,7 +40,7 @@ export default function Home() {
         copy="Software, cloud, infrastructure and data — complex systems underneath, simple products above."
         reverse
       >
-        <FlowDiagram steps={SYSTEMS_PREVIEW} />
+        <LayerDiagram />
       </SystemSection>
 
       <SystemSection
@@ -48,8 +48,7 @@ export default function Home() {
         eyebrow="06 / Security"
         headline={["Security", "is architecture."]}
         copy="Cybersecurity, application security, infrastructure security and resilience — engineered in, not bolted on."
-        fieldVariant="security"
-        fieldLabel="Defense"
+        tone="deep"
       >
         <SecurityDiagram />
       </SystemSection>

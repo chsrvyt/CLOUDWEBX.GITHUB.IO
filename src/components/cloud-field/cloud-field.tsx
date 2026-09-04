@@ -189,7 +189,9 @@ export function CloudField({
 
 export function FieldLabel({ children }: { children: string }) {
   return (
-    <span className="pointer-events-none absolute bottom-4 right-4 font-mono text-[10px] tracking-[0.25em] text-text-secondary/60 uppercase">
+    /* Desktop only: the label is anchored to the bottom of the text column,
+       which on narrow screens is short enough that it lands on the copy. */
+    <span className="pointer-events-none absolute right-4 bottom-4 hidden font-mono text-[10px] tracking-[0.25em] text-text-secondary/60 uppercase lg:inline">
       {children}
     </span>
   );

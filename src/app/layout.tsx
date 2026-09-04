@@ -21,8 +21,27 @@ const displayFont = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "CloudWeb — Intelligent Software, AI & Cybersecurity",
+  // Absolute base for canonical and Open Graph URLs — without it Next emits
+  // relative ones, which crawlers and link unfurlers can't resolve.
+  metadataBase: new URL("https://www.cloudwebx.in"),
+  title: {
+    default: "CloudWeb — Intelligent Software, AI & Cybersecurity",
+    template: "%s | CloudWeb",
+  },
   description: "CloudWeb builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "CloudWeb",
+    title: "CloudWeb — Intelligent Software, AI & Cybersecurity",
+    description: "CloudWeb builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
+  },
+  twitter: {
+    card: "summary",
+    title: "CloudWeb — Intelligent Software, AI & Cybersecurity",
+    description: "CloudWeb builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
+  },
 };
 
 // Single dark theme site-wide — no OS-preference branch, no toggle.

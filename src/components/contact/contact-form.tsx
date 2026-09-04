@@ -15,10 +15,26 @@ const FIELDS = [
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
-  // No backend wired up yet — this just confirms locally rather than
-  // pretending to send anywhere real. Swap for a real endpoint when one exists.
+  /** There is no backend to post to, so the form hands the message to the
+   *  visitor's own mail client already composed, rather than showing a
+   *  "received" confirmation for a submission that went nowhere. Replace with
+   *  a real endpoint when one exists; the fields already match. */
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "");
+    const body = [
+      `Name: ${name}`,
+      `Email: ${data.get("email") ?? ""}`,
+      `Company: ${data.get("company") ?? ""}`,
+      "",
+      "What they're building:",
+      String(data.get("project") ?? ""),
+    ].join("\n");
+
+    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
+      `Project enquiry — ${name}`
+    )}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   }
 
@@ -45,9 +61,16 @@ export function ContactSection() {
           <div className="col-span-4 md:col-span-8 lg:col-span-6">
             {submitted ? (
               <Reveal>
-                <p className="rounded-sm border border-accent/40 bg-surface/60 px-6 py-8 font-mono text-sm text-text">
-                  Received. We&apos;ll get back to you shortly.
-                </p>
+                <div className="rounded-sm border border-accent/40 bg-surface/60 px-6 py-8">
+                  <p className="font-mono text-sm text-text">Your mail client should have opened with the message ready to send.</p>
+                  <p className="mt-3 font-mono text-xs leading-relaxed text-text-secondary">
+                    If nothing opened, write to{" "}
+                    <a href={`mailto:${SITE.email}`} className="cw-focus-ring rounded text-accent underline decoration-accent/40 underline-offset-4">
+                      {SITE.email}
+                    </a>
+                    .
+                  </p>
+                </div>
               </Reveal>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">

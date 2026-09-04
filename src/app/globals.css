@@ -9,6 +9,10 @@
 :root {
   --cw-bg: #0a0908;
   --cw-bg-secondary: #100e0c;
+  /* Deep Black (doc §04) — the one ground darker than the page, reserved for
+     the Security chapter, which the doc asks to set apart as visually darker
+     rather than letting the whole site flatten into one tone (§24, §06). */
+  --cw-bg-deep: #050505;
   --cw-surface: #17140f;
   --cw-text: #f5f3ef;
   --cw-text-secondary: #8c887e;
@@ -30,6 +34,7 @@
 @theme inline {
   --color-bg: var(--cw-bg);
   --color-bg-secondary: var(--cw-bg-secondary);
+  --color-bg-deep: var(--cw-bg-deep);
   --color-surface: var(--cw-surface);
   --color-text: var(--cw-text);
   --color-text-secondary: var(--cw-text-secondary);
