@@ -11,6 +11,15 @@ export const NAV_LINKS = [
 
 export const CONTACT_LINK = { index: "06", label: "Contact", href: "#contact" } as const;
 
+/** Real routes rather than on-page anchors — the About page and the two legal
+ *  documents. Kept separate from NAV_LINKS because those are all sections of
+ *  the home page and route through Lenis; these are ordinary navigations. */
+export const COMPANY_LINKS = [
+  { label: "About us", href: "/about" },
+  { label: "Terms of Use", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+] as const;
+
 export const SITE = {
   name: "CloudWeb",
   tagline: "AI / SOFTWARE / SECURITY / SYSTEMS",
