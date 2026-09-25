@@ -79,8 +79,6 @@ export default function AboutPage() {
             <li key={member.name} className="border-b border-border py-14 md:py-16">
               <div className="cw-grid items-start">
                 <div className="col-span-4 md:col-span-3 lg:sticky lg:top-28 lg:col-span-4">
-                  <FounderPortrait name={member.name} role={member.role} photo={member.photo} />
-
                   <p className="font-mono text-[10px] tracking-[0.2em] text-accent uppercase">{member.index}</p>
                   <h3 className="mt-5 text-3xl font-semibold tracking-tight text-text md:text-4xl">{member.name}</h3>
                   <p className="mt-3 font-mono text-[11px] tracking-[0.2em] text-text-secondary uppercase">{member.role}</p>
@@ -95,6 +93,8 @@ export default function AboutPage() {
                       </li>
                     ))}
                   </ul>
+
+                  <FounderPortrait name={member.name} role={member.role} photo={member.photo} />
 
                   <ul className="mt-7 flex flex-wrap gap-2">
                     {member.focus.map((area) => (
@@ -189,8 +189,8 @@ export default function AboutPage() {
   );
 }
 
-/** A founder's portrait, framed at 5:6 — the portraits' own proportion, so
- *  nothing is cropped from a face. Until a photo is supplied the same frame
+/** A founder's portrait, set small under the profile buttons and framed at
+ *  5:6 — the portraits' own proportion, so nothing is cropped from a face. Until a photo is supplied the same frame
  *  holds an initials monogram, which keeps the three rows aligned rather than
  *  letting the one with a photo stand taller than the others. */
 function FounderPortrait({ name, role, photo }: { name: string; role: string; photo?: string }) {
@@ -200,18 +200,18 @@ function FounderPortrait({ name, role, photo }: { name: string; role: string; ph
     .join("");
 
   return (
-    <div className="group relative mb-8 aspect-[5/6] w-full max-w-sm overflow-hidden rounded-sm border border-border bg-surface/40 transition-colors duration-500 ease-[var(--cw-ease)] hover:border-accent/50">
+    <div className="group relative mt-7 aspect-[5/6] w-full max-w-[13rem] overflow-hidden rounded-sm border border-border bg-surface/40 transition-colors duration-500 ease-[var(--cw-ease)] hover:border-accent/50">
       {photo ? (
         <Image
           src={photo}
           alt={`${name}, ${role} of CloudWebX`}
           fill
-          sizes="(max-width: 1024px) 384px, 30vw"
+          sizes="13rem"
           className="object-cover object-top transition-transform duration-700 ease-[var(--cw-ease)] group-hover:scale-[1.03]"
         />
       ) : (
         <div aria-hidden className="flex h-full w-full items-center justify-center">
-          <span className="font-display text-[clamp(3.5rem,8vw,5.5rem)] font-semibold tracking-tight text-text-secondary/30">
+          <span className="font-display text-5xl font-semibold tracking-tight text-text-secondary/30">
             {initials}
           </span>
         </div>
