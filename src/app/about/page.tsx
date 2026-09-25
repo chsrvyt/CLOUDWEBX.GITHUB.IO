@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/footer/footer";
 import { GoldButton } from "@/components/shared/gold-button";
@@ -93,6 +94,8 @@ export default function AboutPage() {
                     ))}
                   </ul>
 
+                  <FounderPortrait name={member.name} role={member.role} photo={member.photo} />
+
                   <ul className="mt-7 flex flex-wrap gap-2">
                     {member.focus.map((area) => (
                       <li
@@ -183,5 +186,36 @@ export default function AboutPage() {
 
       <Footer />
     </>
+  );
+}
+
+/** A founder's portrait, set small under the profile buttons and framed at
+ *  5:6 — the portraits' own proportion, so nothing is cropped from a face. Until a photo is supplied the same frame
+ *  holds an initials monogram, which keeps the three rows aligned rather than
+ *  letting the one with a photo stand taller than the others. */
+function FounderPortrait({ name, role, photo }: { name: string; role: string; photo?: string }) {
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("");
+
+  return (
+    <div className="group relative mt-7 aspect-[5/6] w-full max-w-[13rem] overflow-hidden rounded-sm border border-border bg-surface/40 transition-colors duration-500 ease-[var(--cw-ease)] hover:border-accent/50">
+      {photo ? (
+        <Image
+          src={photo}
+          alt={`${name}, ${role} of CloudWebX`}
+          fill
+          sizes="13rem"
+          className="object-cover object-top transition-transform duration-700 ease-[var(--cw-ease)] group-hover:scale-[1.03]"
+        />
+      ) : (
+        <div aria-hidden className="flex h-full w-full items-center justify-center">
+          <span className="font-display text-5xl font-semibold tracking-tight text-text-secondary/30">
+            {initials}
+          </span>
+        </div>
+      )}
+    </div>
   );
 }
