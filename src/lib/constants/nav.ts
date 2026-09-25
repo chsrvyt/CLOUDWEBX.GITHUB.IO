@@ -5,12 +5,15 @@
  *  page. SmoothLink handles both — it scrolls through Lenis for fragments and
  *  navigates normally for paths, and rewrites a fragment to /#section when the
  *  visitor is on one of the routes rather than the home page. */
+/** `featured` marks the two pages the site most wants visited — the live
+ *  product and the people behind it. The navbar sets those in gold; the rest
+ *  stay plain so the two stand out rather than competing with every link. */
 export const NAV_LINKS = [
-  { index: "01", label: "Campus", href: "/campus" },
-  { index: "02", label: "Work", href: "#work" },
-  { index: "03", label: "Capabilities", href: "#capabilities" },
-  { index: "04", label: "Approach", href: "#approach" },
-  { index: "05", label: "About us", href: "/about" },
+  { index: "01", label: "Campus", href: "/campus", featured: true },
+  { index: "02", label: "Work", href: "#work", featured: false },
+  { index: "03", label: "Capabilities", href: "#capabilities", featured: false },
+  { index: "04", label: "Approach", href: "#approach", featured: false },
+  { index: "05", label: "About us", href: "/about", featured: true },
 ] as const;
 
 export const CONTACT_LINK = { index: "06", label: "Contact", href: "#contact" } as const;

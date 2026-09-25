@@ -273,6 +273,45 @@ body {
   }
 }
 
+/* Golden lettering with the same passing shine as .cw-sheen, for featured
+   links set as large type (the mobile menu), where a bordered pill would be
+   clumsy. The gradient is wider than the text, so both resting positions show
+   plain gold and only the pass in between carries the highlight — which also
+   means the reduced-motion rule, by skipping straight to the end, leaves it
+   plain gold rather than frozen mid-shine. */
+.cw-gold-text {
+  background: linear-gradient(
+    100deg,
+    var(--cw-accent-text) 0%,
+    var(--cw-accent-text) 40%,
+    #fff1dc 50%,
+    var(--cw-accent-text) 60%,
+    var(--cw-accent-text) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cw-gold-text 5s var(--cw-ease-in-out) infinite;
+}
+@keyframes cw-gold-text {
+  0%,
+  65% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+/* Forced-colours modes (Windows High Contrast) drop background images, which
+   would leave transparent, invisible text. Hand the colour back. */
+@media (forced-colors: active) {
+  .cw-gold-text {
+    background: none;
+    color: LinkText;
+  }
+}
+
 /* Scroll-driven entrance for high-priority buttons (about/profile-link.tsx):
    rises in as it enters the viewport, driven by scroll position rather than
    script, so it needs no JS and no animation frames on the main thread. Each

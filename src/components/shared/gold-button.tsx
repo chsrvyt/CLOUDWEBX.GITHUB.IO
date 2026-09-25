@@ -32,6 +32,7 @@ export function GoldButton({
   ariaLabel,
   rise = false,
   order = 0,
+  size = "md",
 }: {
   href: string;
   children: ReactNode;
@@ -45,9 +46,13 @@ export function GoldButton({
   rise?: boolean;
   /** Position within a group of rising buttons, for the entrance stagger. */
   order?: number;
+  /** `sm` fits a header row of 11px links; `md` is a standalone call to action. */
+  size?: "sm" | "md";
 }) {
-  const className =
-    "cw-focus-ring cw-sheen group relative inline-flex items-center gap-3 overflow-hidden rounded-sm border border-accent/50 bg-accent/[0.06] px-5 py-3 font-mono text-[11px] tracking-[0.15em] text-text uppercase transition-colors duration-300 ease-[var(--cw-ease)] hover:border-accent hover:text-bg focus-visible:border-accent focus-visible:text-bg";
+  const className = cn(
+    "cw-focus-ring cw-sheen group relative inline-flex items-center overflow-hidden rounded-sm border border-accent/50 bg-accent/[0.06] font-mono text-[11px] tracking-[0.15em] text-text uppercase transition-colors duration-300 ease-[var(--cw-ease)] hover:border-accent hover:text-bg focus-visible:border-accent focus-visible:text-bg",
+    size === "sm" ? "gap-2 px-3 py-1.5" : "gap-3 px-5 py-3"
+  );
 
   const content = (
     <>

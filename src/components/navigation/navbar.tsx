@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { SmoothLink } from "@/components/shared/smooth-link";
 import { LogoMark } from "@/components/shared/logo-mark";
 import { Magnetic } from "@/components/shared/magnetic";
+import { GoldButton } from "@/components/shared/gold-button";
 import { NAV_LINKS, CONTACT_LINK, SITE } from "@/lib/constants/nav";
 import { cn } from "@/lib/utils";
 
@@ -46,18 +47,28 @@ export function Navbar() {
           </SmoothLink>
 
           <div className="hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <Magnetic key={link.href} strength={0.25}>
-                <SmoothLink
-                  href={link.href}
-                  className="cw-focus-ring group flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text-secondary uppercase transition-colors hover:text-text"
-                >
-                  <span className="text-[10px] opacity-60">{link.index}</span>
+            {NAV_LINKS.map((link) =>
+              link.featured ? (
+                // The two pages the site most wants visited get the golden
+                // button in its compact size; Campus also carries a live dot,
+                // because the product is running now.
+                <GoldButton key={link.href} href={link.href} size="sm" icon={link.href === "/campus" ? <LiveDot /> : undefined}>
+                  <span className="mr-2 text-[10px] opacity-60">{link.index}</span>
                   {link.label}
-                  <span className="w-0 overflow-hidden opacity-0 transition-all duration-300 ease-[var(--cw-ease)] group-hover:w-3 group-hover:opacity-100">↗</span>
-                </SmoothLink>
-              </Magnetic>
-            ))}
+                </GoldButton>
+              ) : (
+                <Magnetic key={link.href} strength={0.25}>
+                  <SmoothLink
+                    href={link.href}
+                    className="cw-focus-ring group flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text-secondary uppercase transition-colors hover:text-text"
+                  >
+                    <span className="text-[10px] opacity-60">{link.index}</span>
+                    {link.label}
+                    <span className="w-0 overflow-hidden opacity-0 transition-all duration-300 ease-[var(--cw-ease)] group-hover:w-3 group-hover:opacity-100">↗</span>
+                  </SmoothLink>
+                </Magnetic>
+              )
+            )}
           </div>
 
           <div className="hidden items-center lg:flex">
@@ -102,14 +113,29 @@ export function Navbar() {
               </button>
             </div>
             <div className="flex flex-1 flex-col items-start justify-center gap-5 px-8">
-              {[...NAV_LINKS, CONTACT_LINK].map((link, i) => (
-                <motion.div key={link.href} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="flex items-baseline gap-3">
-                  <span className="font-mono text-xs text-text-secondary">{link.index}</span>
-                  <SmoothLink href={link.href} onClick={() => setMenuOpen(false)} className="cw-focus-ring block rounded text-5xl font-medium tracking-tight text-text">
-                    {link.label}
-                  </SmoothLink>
-                </motion.div>
-              ))}
+              {[...NAV_LINKS, CONTACT_LINK].map((link, i) => {
+                const featured = "featured" in link && link.featured;
+                return (
+                  <motion.div key={link.href} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="flex items-baseline gap-3">
+                    <span className={cn("font-mono text-xs", featured ? "text-accent" : "text-text-secondary")}>{link.index}</span>
+                    {/* At menu size a bordered pill would be clumsy, so the
+                        featured pages carry the same golden shine in the
+                        lettering itself. */}
+                    <SmoothLink
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={cn("cw-focus-ring block rounded text-5xl font-medium tracking-tight", featured ? "cw-gold-text" : "text-text")}
+                    >
+                      {link.label}
+                    </SmoothLink>
+                    {link.href === "/campus" && (
+                      <span className="self-center text-accent">
+                        <LiveDot />
+                      </span>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
             <div className="cw-container flex items-center justify-between py-6 font-mono text-[10px] tracking-widest text-text-secondary uppercase">
               <span>{SITE.tagline}</span>
@@ -118,5 +144,18 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+/** A small pulsing dot marking Campus as live. Takes the text colour, so it
+ *  turns dark with the rest of the button when the gold fill sweeps in. The
+ *  ring is decorative and hidden from assistive tech; under reduced motion the
+ *  global rule stops the pulse and leaves the solid dot. */
+function LiveDot() {
+  return (
+    <span aria-hidden className="relative flex size-1.5">
+      <span className="absolute inline-flex size-full animate-ping rounded-full bg-current opacity-75" />
+      <span className="relative inline-flex size-1.5 rounded-full bg-current" />
+    </span>
   );
 }
