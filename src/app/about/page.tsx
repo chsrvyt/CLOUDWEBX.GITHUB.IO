@@ -69,26 +69,52 @@ export default function AboutPage() {
           The people behind it.
         </h2>
 
-        <ul className="grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+        {/* One full-width row per founder rather than three cards: the bios run
+            three and four paragraphs, which a third of the page can't hold
+            without becoming a column of text. The identity column sticks while
+            the bio beside it scrolls. */}
+        <ul className="border-t border-border">
           {TEAM.map((member) => (
-            <li key={member.name} className="border-t border-border pt-8">
-              <p className="font-mono text-[10px] tracking-[0.2em] text-accent uppercase">{member.index}</p>
+            <li key={member.name} className="border-b border-border py-14 md:py-16">
+              <div className="cw-grid items-start">
+                <div className="col-span-4 md:col-span-3 lg:sticky lg:top-28 lg:col-span-4">
+                  <p className="font-mono text-[10px] tracking-[0.2em] text-accent uppercase">{member.index}</p>
+                  <h3 className="mt-5 text-3xl font-semibold tracking-tight text-text md:text-4xl">{member.name}</h3>
+                  <p className="mt-3 font-mono text-[11px] tracking-[0.2em] text-text-secondary uppercase">{member.role}</p>
 
-              <h3 className="mt-5 text-2xl font-semibold tracking-tight text-text">{member.name}</h3>
-              <p className="mt-2 font-mono text-[11px] tracking-[0.2em] text-text-secondary uppercase">{member.role}</p>
+                  <ul className="mt-8 flex flex-wrap gap-2">
+                    {member.focus.map((area) => (
+                      <li
+                        key={area}
+                        className="rounded-sm border border-border px-3 py-1.5 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase"
+                      >
+                        {area}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {member.bio && <p className="mt-5 text-sm leading-relaxed text-text-secondary">{member.bio}</p>}
+                <div className="col-span-4 mt-10 md:col-span-5 md:mt-0 lg:col-span-7 lg:col-start-6">
+                  {member.bio.map((paragraph) => (
+                    <p key={paragraph.slice(0, 32)} className="mt-5 max-w-2xl text-sm leading-relaxed text-text-secondary first:mt-0 md:text-base">
+                      {paragraph}
+                    </p>
+                  ))}
 
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {member.focus.map((area) => (
-                  <li
-                    key={area}
-                    className="rounded-sm border border-border px-3 py-1.5 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase"
-                  >
-                    {area}
-                  </li>
-                ))}
-              </ul>
+                  {member.highlights && (
+                    <ul className="mt-10 flex max-w-2xl flex-col gap-3 border-t border-border pt-6">
+                      {member.highlights.map((highlight) => (
+                        <li key={highlight} className="flex gap-3 font-mono text-[11px] leading-relaxed tracking-[0.1em] text-text uppercase">
+                          <span className="text-accent" aria-hidden>
+                            —
+                          </span>
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
             </li>
           ))}
         </ul>
