@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Campus — Learning platform for colleges",
   description:
-    "Campus is CloudWeb's learning, practice and assessment platform: interactive lessons, real code execution, locked-down tests, an interview studio, aptitude practice and company prep.",
+    "Campus is CloudWebX's learning, practice and assessment platform: interactive lessons, real code execution, locked-down tests, an interview studio, aptitude practice and company prep.",
   alternates: { canonical: "/campus" },
 };
 
@@ -121,7 +121,7 @@ export default function CampusPage() {
           <span className="mt-2 block text-text-secondary">The platform under load.</span>
         </h2>
 
-        <Coverflow items={CAMPUS_MILESTONES} label="CloudWeb milestones: the Softronix partnership and Campus under load" />
+        <Coverflow items={CAMPUS_MILESTONES} label="CloudWebX milestones: the Softronix partnership and Campus under load" />
       </section>
 
       <section className="cw-container border-t border-border py-20 md:py-28">

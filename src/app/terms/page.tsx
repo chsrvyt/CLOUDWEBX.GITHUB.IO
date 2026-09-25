@@ -14,11 +14,11 @@ import {
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "The Campus Terms of Use and the CloudWeb Client Terms & Conditions and Software Development Agreement.",
+    "The Campus Terms of Use and the CloudWebX Client Terms & Conditions and Software Development Agreement.",
   alternates: { canonical: "/terms" },
 };
 
-/** Two separate agreements live here because CloudWeb has two kinds of
+/** Two separate agreements live here because CloudWebX has two kinds of
  *  counterparty — people who sign in to Campus, and clients who commission
  *  software — and conflating them would leave each reading clauses that do
  *  not apply to them. */
@@ -27,7 +27,7 @@ export default function TermsPage() {
     <LegalPage
       eyebrow="Legal / Terms"
       title="Terms of Use."
-      lede="Two agreements: one for everyone who signs in to Campus, and one for clients commissioning software from CloudWeb. Read the one that applies to you."
+      lede="Two agreements: one for everyone who signs in to Campus, and one for clients commissioning software from CloudWebX. Read the one that applies to you."
       meta={`${LEGAL_ENTITY.name} · Campus terms version ${TERMS_VERSION} · Effective ${TERMS_EFFECTIVE}`}
     >
       <nav aria-label="Agreements on this page" className="mb-16 flex flex-wrap gap-x-8 gap-y-3 border-b border-border pb-8">

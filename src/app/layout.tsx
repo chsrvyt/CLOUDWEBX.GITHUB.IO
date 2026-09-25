@@ -25,22 +25,22 @@ export const metadata: Metadata = {
   // relative ones, which crawlers and link unfurlers can't resolve.
   metadataBase: new URL("https://www.cloudwebx.in"),
   title: {
-    default: "CloudWeb — Intelligent Software, AI & Cybersecurity",
-    template: "%s | CloudWeb",
+    default: "CloudWebX — Intelligent Software, AI & Cybersecurity",
+    template: "%s | CloudWebX",
   },
-  description: "CloudWeb builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
+  description: "CloudWebX builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "CloudWeb",
-    title: "CloudWeb — Intelligent Software, AI & Cybersecurity",
-    description: "CloudWeb builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
+    siteName: "CloudWebX",
+    title: "CloudWebX — Intelligent Software, AI & Cybersecurity",
+    description: "CloudWebX builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
   },
   twitter: {
     card: "summary",
-    title: "CloudWeb — Intelligent Software, AI & Cybersecurity",
-    description: "CloudWeb builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
+    title: "CloudWebX — Intelligent Software, AI & Cybersecurity",
+    description: "CloudWebX builds intelligent software systems, AI agents, LLM applications and secure digital infrastructure.",
   },
 };
 

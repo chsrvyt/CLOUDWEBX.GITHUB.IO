@@ -15,7 +15,7 @@ export function About() {
           </h2>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-text-secondary md:text-base">
-              CloudWeb is an engineering-focused technology company working across artificial intelligence, software engineering, cybersecurity and infrastructure.
+              CloudWebX is an engineering-focused technology company working across artificial intelligence, software engineering, cybersecurity and infrastructure.
             </p>
           </Reveal>
         </div>

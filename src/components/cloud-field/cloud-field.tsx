@@ -29,7 +29,7 @@ const VARIANT_CONFIG: Record<FieldVariant, { count: number; radius: number; spee
 };
 
 /**
- * The CloudWeb Field — a restrained generative background, now used in only
+ * The CloudWebX Field — a restrained generative background, now used in only
  * a couple of spots (Intelligence, Contact) rather than behind every
  * section, per the "low visual density" direction — most sections should
  * breathe instead of always carrying a node-network texture. Canvas 2D, not

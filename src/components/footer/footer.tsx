@@ -13,7 +13,7 @@ export function Footer() {
           <div className="col-span-4 md:col-span-3">
             <div className="flex items-center gap-2.5">
               <LogoMark className="size-5 text-text" />
-              <span className="font-mono text-[13px] tracking-[0.28em] text-text uppercase">CloudWeb</span>
+              <span className="font-mono text-[13px] tracking-[0.28em] text-text uppercase">CloudWebX</span>
             </div>
             <ul className="mt-6 flex flex-col gap-1.5">
               {PILLARS.map((p) => (
@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col-reverse items-start justify-between gap-6 border-t border-border pt-6 md:flex-row md:items-center">
-          <p className="font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase">© {SITE.year} CloudWeb</p>
+          <p className="font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase">© {SITE.year} CloudWebX</p>
           <p className="flex items-center gap-2 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase">
             <span className="size-1.5 rounded-full bg-accent-bright" />
             Systems online

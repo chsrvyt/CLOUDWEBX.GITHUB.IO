@@ -1,5 +1,5 @@
 /**
- * Abstract CloudWeb mark — three independent nodes converging on one point,
+ * Abstract CloudWebX mark — three independent nodes converging on one point,
  * standing in for AI / Software / Security resolving into a single engineered
  * system (see the site's closing "convergence" motif). Deliberately not a
  * cloud glyph. currentColor so it inherits context; the convergence point

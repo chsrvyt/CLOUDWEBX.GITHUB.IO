@@ -39,7 +39,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8 max-w-md font-mono text-[11px] leading-relaxed tracking-[0.05em] text-text-secondary uppercase"
             >
-              CloudWeb builds AI systems, software and secure infrastructure for organizations solving difficult problems.
+              CloudWebX builds AI systems, software and secure infrastructure for organizations solving difficult problems.
             </motion.p>
 
             <motion.div

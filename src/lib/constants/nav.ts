@@ -28,7 +28,7 @@ export const COMPANY_LINKS = [
 ] as const;
 
 export const SITE = {
-  name: "CloudWeb",
+  name: "CloudWebX",
   tagline: "AI / SOFTWARE / SECURITY / SYSTEMS",
   email: "cloudwebtech7@gmail.com",
   year: new Date().getFullYear(),

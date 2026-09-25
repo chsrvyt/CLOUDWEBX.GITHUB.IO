@@ -15,7 +15,7 @@ export function Introduction() {
         <div className="col-span-4 md:col-span-6 md:col-start-3 lg:col-span-3 lg:col-start-10">
           <Reveal delay={0.2}>
             <p className="mt-8 font-mono text-[11px] leading-relaxed tracking-[0.05em] text-text-secondary uppercase md:mt-0">
-              From AI agents to cybersecurity and infrastructure, CloudWeb designs and engineers systems built for real-world complexity.
+              From AI agents to cybersecurity and infrastructure, CloudWebX designs and engineers systems built for real-world complexity.
             </p>
           </Reveal>
         </div>
