@@ -35,7 +35,7 @@ const SWIPE_VELOCITY = 500;
  *
  *  Slides are announced through a live region, and every off-centre slide is
  *  hidden from assistive tech so a screen reader gets one image, not five. */
-export function Coverflow({ items, className }: { items: CoverflowItem[]; className?: string }) {
+export function Coverflow({ items, label, className }: { items: CoverflowItem[]; label: string; className?: string }) {
   const reducedMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -83,7 +83,7 @@ export function Coverflow({ items, className }: { items: CoverflowItem[]; classN
     <div
       role="region"
       aria-roledescription="carousel"
-      aria-label="Campus in the field"
+      aria-label={label}
       tabIndex={0}
       onKeyDown={onKeyDown}
       onMouseEnter={() => setPaused(true)}

@@ -75,11 +75,13 @@ export const CAMPUS_ROLES = [
 /** The languages the playground and coding questions execute for real. */
 export const CAMPUS_LANGUAGES = ["Python", "C", "C++", "Java", "JavaScript"] as const;
 
-/** Photographs of Campus outside the demo: a live cohort, a signed partner and
- *  the platform under load. Captions stay to what the pictures actually show —
- *  no cohort sizes or uptime figures, which aren't ours to assert.
+/** Photographs of Campus outside the demo. Captions stay to what the pictures
+ *  actually show — no cohort sizes or uptime figures, which aren't ours to
+ *  assert. Files live in public/campus/.
  *
- *  Files belong in public/campus/ under exactly these names. */
+ *  Two sets, because they record different things: the final-year test at
+ *  Symbiosis is one event with its own heading, and the partnership and the
+ *  load test are separate milestones that would misread as part of it. */
 export interface CampusProofItem {
   id: string;
   src: string;
@@ -88,7 +90,8 @@ export interface CampusProofItem {
   caption: string;
 }
 
-export const CAMPUS_PROOF: CampusProofItem[] = [
+/** The final-year test at Symbiosis Institute of Technology, Nagpur. */
+export const CAMPUS_SYMBIOSIS: CampusProofItem[] = [
   {
     id: "symbiosis-hall",
     src: "/campus/symbiosis-nagpur-hall.jpg",
@@ -110,6 +113,10 @@ export const CAMPUS_PROOF: CampusProofItem[] = [
     title: "Tested on site",
     caption: "23 September 2026, Symbiosis College Road, Nagpur — a live locked-down test run with the CloudWeb team in the room.",
   },
+];
+
+/** Milestones outside that event. */
+export const CAMPUS_MILESTONES: CampusProofItem[] = [
   {
     id: "softronix",
     src: "/campus/softronix-partnership.jpg",

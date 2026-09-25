@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/footer/footer";
 import { ProductMock } from "@/components/campus/product-mock";
@@ -10,8 +11,9 @@ import {
   CAMPUS_JOURNEY,
   CAMPUS_LANGUAGES,
   CAMPUS_MODES,
-  CAMPUS_PROOF,
+  CAMPUS_MILESTONES,
   CAMPUS_ROLES,
+  CAMPUS_SYMBIOSIS,
 } from "@/lib/constants/campus";
 
 export const metadata: Metadata = {
@@ -109,7 +111,40 @@ export default function CampusPage() {
           <span className="mt-2 block text-text-secondary">Symbiosis Institute of Technology, Nagpur.</span>
         </h2>
 
-        <Coverflow items={CAMPUS_PROOF} />
+        <Coverflow items={CAMPUS_SYMBIOSIS} label="Final year test at Symbiosis Institute of Technology, Nagpur" />
+      </section>
+
+      <section className="cw-container border-t border-border py-20 md:py-28">
+        <p className="mb-6 font-mono text-[11px] tracking-[0.3em] text-text-secondary uppercase">Milestones</p>
+        <h2 className="mb-16 max-w-3xl text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.02] font-semibold tracking-tight text-text">
+          A partner signed.
+          <span className="mt-2 block text-text-secondary">The platform under load.</span>
+        </h2>
+
+        {/* Two images side by side rather than a second carousel: a coverflow
+            of two leaves one slide stranded at the edge, and two pictures fit
+            the width anyway. */}
+        <ul className="grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2">
+          {CAMPUS_MILESTONES.map((item) => (
+            <li key={item.id}>
+              <figure>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border bg-surface/40">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-6 border-t border-border pt-6">
+                  <p className="font-mono text-[11px] tracking-[0.2em] text-text uppercase">{item.title}</p>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-text-secondary">{item.caption}</p>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="cw-container border-t border-border py-20 md:py-28">
