@@ -77,10 +77,14 @@ export default function AboutPage() {
         <ul className="border-t border-border">
           {TEAM.map((member) => (
             <li key={member.name} className="border-b border-border py-14 md:py-16">
+              {/* The index sits above both columns, not inside the left one —
+                  inside, it pushed the name down while the bio started level
+                  with the index, so the bio ran a line higher than the name
+                  it belongs to. Out here, name and bio share a top edge. */}
+              <p className="mb-5 font-mono text-[10px] tracking-[0.2em] text-accent uppercase">{member.index}</p>
               <div className="cw-grid items-start">
-                <div className="col-span-4 md:col-span-3 lg:sticky lg:top-28 lg:col-span-4">
-                  <p className="font-mono text-[10px] tracking-[0.2em] text-accent uppercase">{member.index}</p>
-                  <h3 className="mt-5 text-3xl font-semibold tracking-tight text-text md:text-4xl">{member.name}</h3>
+                <div className="col-span-4 md:col-span-3 lg:sticky lg:top-28 lg:col-span-4 lg:max-w-[22rem]">
+                  <h3 className="text-3xl font-semibold tracking-tight text-text md:text-4xl">{member.name}</h3>
                   <p className="mt-3 font-mono text-[11px] tracking-[0.2em] text-text-secondary uppercase">{member.role}</p>
 
                   {/* Directly under name and role — the profile links are the
@@ -108,7 +112,7 @@ export default function AboutPage() {
                   </ul>
                 </div>
 
-                <div className="col-span-4 mt-10 md:col-span-5 md:mt-0 lg:col-span-7 lg:col-start-6">
+                <div className="col-span-4 mt-10 md:col-span-5 md:mt-0 lg:col-span-7 lg:col-start-6 xl:col-span-8 xl:col-start-5">
                   {member.bio.map((paragraph) => (
                     <p key={paragraph.slice(0, 32)} className="mt-5 max-w-2xl text-sm leading-relaxed text-text-secondary first:mt-0 md:text-base">
                       {paragraph}
