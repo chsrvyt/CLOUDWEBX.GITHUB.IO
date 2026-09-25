@@ -109,9 +109,9 @@ export const CAMPUS_SYMBIOSIS: CampusProofItem[] = [
   {
     id: "symbiosis-tested",
     src: "/campus/symbiosis-nagpur-tested.jpg",
-    alt: "Students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, with a geotagged camera stamp showing the date and location.",
+    alt: "Final year students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, under a banner reading 'Final year test performed on our platform' and a panel giving the date, 23 September 2026.",
     title: "Tested on site",
-    caption: "23 September 2026, Symbiosis College Road, Nagpur — a live locked-down test run with the CloudWeb team in the room.",
+    caption: "23 September 2026, Nagpur — final year students sitting a live, locked-down test on Campus, with the CloudWeb team in the room.",
   },
 ];
 
