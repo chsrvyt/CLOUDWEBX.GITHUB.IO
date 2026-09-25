@@ -16,7 +16,11 @@ export interface CoverflowItem {
 
 const DEPTH = 220;
 const ROTATION = 38;
-const SPACING = 300;
+/** Horizontal step between slides, as a percentage of the slide's own width
+ *  rather than fixed pixels: slides are 260px on phones and 460px on desktop,
+ *  and a fixed 300px step flung the side slides off a phone screen and made the
+ *  whole page scroll sideways. 65% of 460px is the original desktop spacing. */
+const SPACING_PCT = 65;
 const SCALE_STEP = 0.14;
 const MIN_SCALE = 0.55;
 const MAX_VISIBLE = 2;
@@ -90,7 +94,9 @@ export function Coverflow({ items, label, className }: { items: CoverflowItem[];
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
-      className={cn("cw-focus-ring relative w-full rounded select-none", className)}
+      // overflow-x-clip, not hidden: it trims the peeking side slides at the
+      // edge without making this a scroll container or clipping vertically.
+      className={cn("cw-focus-ring relative w-full overflow-x-clip rounded select-none", className)}
       style={{ perspective: reducedMotion ? undefined : 1400 }}
     >
       <motion.div
@@ -124,7 +130,7 @@ export function Coverflow({ items, label, className }: { items: CoverflowItem[];
                       opacity: isActive ? 1 : 0.4,
                       rotateY: -offset * ROTATION,
                       scale,
-                      x: offset * SPACING,
+                      x: `${offset * SPACING_PCT}%`,
                       z: -Math.abs(offset) * DEPTH,
                     }
               }

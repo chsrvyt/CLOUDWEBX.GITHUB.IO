@@ -120,7 +120,7 @@ export const CAMPUS_MILESTONES: CampusProofItem[] = [
   {
     id: "softronix",
     src: "/campus/softronix-partnership.jpg",
-    alt: "Representatives of CloudWeb and Softronix standing together at the Softronix office, holding the signed partnership agreement.",
+    alt: "Representatives of CloudWeb and Softronix standing together at the Softronix office, holding the signed partnership agreement, under a 'Partnership secured' banner.",
     title: "Softronix partnership",
     caption: "Agreement signed with Softronix, extending Campus to their training and placement programmes.",
   },
