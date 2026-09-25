@@ -90,8 +90,17 @@ export interface CampusProofItem {
   caption: string;
 }
 
-/** The final-year test at Symbiosis Institute of Technology, Nagpur. */
+/** The final-year test at Symbiosis Institute of Technology, Nagpur. The
+ *  "Final year test" graphic leads: it states the event the section heading
+ *  names, so the carousel opens on the picture that matches it. */
 export const CAMPUS_SYMBIOSIS: CampusProofItem[] = [
+  {
+    id: "symbiosis-tested",
+    src: "/campus/symbiosis-nagpur-tested.jpg",
+    alt: "Final year students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, under a banner reading 'Final year test performed on our platform' and a panel giving the date, 23 September 2026.",
+    title: "Tested on site",
+    caption: "23 September 2026, Nagpur — final year students sitting a live, locked-down test on Campus, with the CloudWeb team in the room.",
+  },
   {
     id: "symbiosis-hall",
     src: "/campus/symbiosis-nagpur-hall.jpg",
@@ -105,13 +114,6 @@ export const CAMPUS_SYMBIOSIS: CampusProofItem[] = [
     alt: "Students seated across the tiered desks of the Symbiosis Institute of Technology lecture hall, laptops open, staff standing at the front.",
     title: "A cohort at work",
     caption: "Every seat signed in and working through the same session, supervised from the front of the room.",
-  },
-  {
-    id: "symbiosis-tested",
-    src: "/campus/symbiosis-nagpur-tested.jpg",
-    alt: "Final year students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, under a banner reading 'Final year test performed on our platform' and a panel giving the date, 23 September 2026.",
-    title: "Tested on site",
-    caption: "23 September 2026, Nagpur — final year students sitting a live, locked-down test on Campus, with the CloudWeb team in the room.",
   },
 ];
 
