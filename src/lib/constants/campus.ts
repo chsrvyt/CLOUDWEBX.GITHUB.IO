@@ -65,7 +65,52 @@ export const CAMPUS_JOURNEY = [
 
 /** Who signs in — the four roles Campus ships with, evidence that it covers a
  *  whole institution rather than a single classroom. */
-export const CAMPUS_ROLES = ["Students", "Teachers", "Institute Admins", "Super Admins"] as const;
+export const CAMPUS_ROLES = [
+  { name: "Students", description: "Learn, practice, and take assessments." },
+  { name: "Teachers", description: "Author content, build tests, track batches." },
+  { name: "Institute Admins", description: "Manage a college's teachers, students and batches." },
+  { name: "Super Admins", description: "Oversee colleges, modules and the question bank." },
+] as const;
+
+/** The languages the playground and coding questions execute for real. */
+export const CAMPUS_LANGUAGES = ["Python", "C", "C++", "Java", "JavaScript"] as const;
+
+/** Photographs of Campus outside the demo: a live cohort, a signed partner and
+ *  the platform under load. Captions stay to what the pictures actually show —
+ *  no cohort sizes or uptime figures, which aren't ours to assert.
+ *
+ *  Files belong in public/campus/ under exactly these names. */
+export interface CampusProofItem {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+}
+
+export const CAMPUS_PROOF: CampusProofItem[] = [
+  {
+    id: "symbiosis",
+    src: "/campus/symbiosis-nagpur.jpg",
+    alt: "A lecture hall of students at Symbiosis Institute of Technology, Nagpur, sitting a test on laptops while two CloudWeb staff observe.",
+    title: "Symbiosis Institute of Technology, Nagpur",
+    caption: "A full cohort sitting a live, locked-down test on Campus — the platform run in a real classroom rather than a demo.",
+  },
+  {
+    id: "softronix",
+    src: "/campus/softronix-partnership.jpg",
+    alt: "Representatives of CloudWeb and Softronix holding the signed partnership agreement at the Softronix office.",
+    title: "Softronix partnership",
+    caption: "Agreement signed with Softronix, extending Campus to their training and placement programmes.",
+  },
+  {
+    id: "load-test",
+    src: "/campus/campus-load-test.jpg",
+    alt: "Three laptops side by side: Campus open at the tests page, a monitoring dashboard showing CPU usage and requests per second, and a sign-in screen.",
+    title: "Under load",
+    caption: "Campus alongside its monitoring — CPU and request throughput watched while the platform is stress-tested and tagged.",
+  },
+];
 
 /** The lesson-view mode strip, mirrored in the product mock. */
 export const CAMPUS_MODES = ["Understand", "Visualize", "Try", "Apply"] as const;

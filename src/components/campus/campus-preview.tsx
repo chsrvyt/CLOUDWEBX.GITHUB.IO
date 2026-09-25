@@ -1,20 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {
-  CAMPUS,
-  CAMPUS_FEATURES,
-  CAMPUS_JOURNEY,
-  CAMPUS_MODES,
-  CAMPUS_ROLES,
-  CAMPUS_SNIPPET,
-  CAMPUS_SNIPPET_NOTE,
-} from "@/lib/constants/campus";
+import Link from "next/link";
+import { CAMPUS, CAMPUS_FEATURES, CAMPUS_JOURNEY, CAMPUS_ROLES } from "@/lib/constants/campus";
+import { ProductMock } from "@/components/campus/product-mock";
 import { Reveal, RevealLines } from "@/lib/animations/reveal";
 import { ScrambleOnView } from "@/lib/animations/scramble-text";
 import { Magnetic } from "@/components/shared/magnetic";
-import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
-import { cn } from "@/lib/utils";
 
 /** Flagship product preview — an information panel plus a referral link out to
  *  campus.cloudwebx.in, not an embed of it. Takes section "01", the one number
@@ -59,6 +50,15 @@ export function CampusPreview() {
                 </a>
               </Magnetic>
 
+              <Link
+                href="/campus"
+                data-cursor="view"
+                className="cw-focus-ring group inline-flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text uppercase transition-colors hover:text-accent"
+              >
+                Full overview
+                <span className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1">→</span>
+              </Link>
+
               <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-text-secondary uppercase">
                 <span className="size-1.5 rounded-full bg-accent" aria-hidden />
                 {CAMPUS.status}
@@ -101,69 +101,9 @@ export function CampusPreview() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="font-mono text-[10px] tracking-[0.2em] text-text-secondary uppercase">{CAMPUS_ROLES.join(" · ")}</p>
+          <p className="font-mono text-[10px] tracking-[0.2em] text-text-secondary uppercase">{CAMPUS_ROLES.map((r) => r.name).join(" · ")}</p>
         </Reveal>
       </div>
     </section>
-  );
-}
-
-/** A still of Campus's own lesson view — the mode strip and the step-through
- *  debugger, which are the product's signature — rather than a generic glow
- *  panel, so the preview shows what the visitor would actually be clicking
- *  through to. Decorative: the real thing is one link away, so it's hidden
- *  from assistive tech instead of being announced as a fake code sample. */
-function ProductMock() {
-  const reducedMotion = useReducedMotion();
-  const [activeLine, setActiveLine] = useState(2);
-
-  useEffect(() => {
-    if (reducedMotion) return;
-    const id = window.setInterval(() => {
-      setActiveLine((line) => (line % CAMPUS_SNIPPET.length) + 1);
-    }, 2200);
-    return () => window.clearInterval(id);
-  }, [reducedMotion]);
-
-  return (
-    <div aria-hidden className="overflow-hidden rounded-sm border border-border bg-surface/40">
-      <div className="flex items-center justify-between border-b border-border px-4 py-3 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase">
-        <span>campus · While Loop</span>
-        <span className="text-accent">Try</span>
-      </div>
-
-      <div className="flex flex-wrap gap-x-5 gap-y-2 border-b border-border px-4 py-3 font-mono text-[10px] tracking-[0.15em] uppercase">
-        {CAMPUS_MODES.map((mode) => (
-          <span key={mode} className={cn(mode === "Try" ? "text-text" : "text-text-secondary/70")}>
-            {mode}
-          </span>
-        ))}
-      </div>
-
-      <div className="px-4 py-5 font-mono text-[12px] leading-relaxed md:text-[13px]">
-        {CAMPUS_SNIPPET.map((row) => {
-          const isActive = row.line === activeLine;
-          return (
-            <div
-              key={row.line}
-              className={cn(
-                "flex gap-4 border-l-2 px-2 py-1 transition-colors duration-500 ease-[var(--cw-ease)]",
-                isActive ? "border-accent bg-accent-dim/25 text-text" : "border-transparent text-text-secondary"
-              )}
-            >
-              <span className={cn("w-3 shrink-0 text-right", isActive ? "text-accent" : "text-text-secondary/60")}>{row.line}</span>
-              <span className="whitespace-pre">{row.code}</span>
-            </div>
-          );
-        })}
-      </div>
-
-      <p className="border-t border-border px-4 py-4 text-xs leading-relaxed text-text-secondary">{CAMPUS_SNIPPET_NOTE}</p>
-
-      <div className="flex items-center gap-2 border-t border-border px-4 py-3 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase">
-        <span className="size-1.5 rounded-full bg-accent" />
-        2 / 2 sample tests passed
-      </div>
-    </div>
   );
 }

@@ -1,12 +1,16 @@
 /** Numbered editorial nav — the index is part of the identity (doc §12), not
  *  a decorative afterthought, so it's carried as data rather than derived
  *  from array position in three different places. */
+/** Campus and About us are real routes; the rest are sections of the home
+ *  page. SmoothLink handles both — it scrolls through Lenis for fragments and
+ *  navigates normally for paths, and rewrites a fragment to /#section when the
+ *  visitor is on one of the routes rather than the home page. */
 export const NAV_LINKS = [
-  { index: "01", label: "Campus", href: "#campus" },
+  { index: "01", label: "Campus", href: "/campus" },
   { index: "02", label: "Work", href: "#work" },
   { index: "03", label: "Capabilities", href: "#capabilities" },
   { index: "04", label: "Approach", href: "#approach" },
-  { index: "05", label: "About", href: "#about" },
+  { index: "05", label: "About us", href: "/about" },
 ] as const;
 
 export const CONTACT_LINK = { index: "06", label: "Contact", href: "#contact" } as const;
