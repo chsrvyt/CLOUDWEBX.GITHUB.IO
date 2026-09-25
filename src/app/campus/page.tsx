@@ -104,8 +104,9 @@ export default function CampusPage() {
 
       <section className="cw-container border-t border-border py-20 md:py-28">
         <p className="mb-6 font-mono text-[11px] tracking-[0.3em] text-text-secondary uppercase">In the field</p>
-        <h2 className="mb-16 max-w-2xl text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.02] font-semibold tracking-tight text-text">
-          Running in real colleges.
+        <h2 className="mb-16 max-w-3xl text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.02] font-semibold tracking-tight text-text">
+          Final year test performed on our platform.
+          <span className="mt-2 block text-text-secondary">Symbiosis Institute of Technology, Nagpur.</span>
         </h2>
 
         <Coverflow items={CAMPUS_PROOF} />
