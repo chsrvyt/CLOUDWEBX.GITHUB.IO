@@ -7,6 +7,8 @@ export interface TeamMember {
   focus: string[];
   /** Awards and experience, set as a list under the bio. */
   highlights?: string[];
+  /** Outbound profiles, in display order. */
+  links: { label: string; href: string }[];
 }
 
 /** The three founders. Bios are the founders' own copy, reproduced as supplied
@@ -28,6 +30,7 @@ export const TEAM: TeamMember[] = [
       "1st Prize Winner — National-Level Startup Hackathon",
       "Product Experience Intern — Kelicalix Technologies",
     ],
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/samir-shendre-432a57320/" }],
   },
   {
     index: "02",
@@ -40,6 +43,7 @@ export const TEAM: TeamMember[] = [
     ],
     focus: ["System Design", "Security Engineering", "Cloud Infrastructure", "AI/ML"],
     highlights: ["Lead System Designer", "Lead Security Engineer", "Led the architecture and development of Campus LMS"],
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/parth-denge-92590531a" }],
   },
   {
     index: "03",
@@ -53,5 +57,9 @@ export const TEAM: TeamMember[] = [
     ],
     focus: ["Cybersecurity", "AI", "Full-Stack Development", "Product Engineering"],
     highlights: ["9+ projects built and contributed to", "Software application delivered, valued at ₹1 lakh+"],
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/sarvesh-chonde/" },
+      { label: "Portfolio", href: "https://chsrvyt.github.io/" },
+    ],
   },
 ];

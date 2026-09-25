@@ -92,6 +92,31 @@ export default function AboutPage() {
                       </li>
                     ))}
                   </ul>
+
+                  <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+                    {member.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-cursor="view"
+                          // "LinkedIn" alone repeats three times on the page; a
+                          // screen reader listing links needs whose it is.
+                          aria-label={`${member.name} — ${link.label}`}
+                          className="cw-focus-ring group inline-flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text uppercase transition-colors hover:text-accent"
+                        >
+                          {link.label}
+                          <span
+                            aria-hidden
+                            className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1 group-hover:-translate-y-1"
+                          >
+                            ↗
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="col-span-4 mt-10 md:col-span-5 md:mt-0 lg:col-span-7 lg:col-start-6">
