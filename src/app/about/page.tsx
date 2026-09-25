@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer } from "@/components/footer/footer";
 import { SmoothLink } from "@/components/shared/smooth-link";
 import { Magnetic } from "@/components/shared/magnetic";
+import { ProfileLink } from "@/components/about/profile-link";
 import { TEAM } from "@/lib/constants/team";
 import { PILLARS } from "@/lib/constants/nav";
 import { LEGAL_ENTITY } from "@/lib/constants/legal";
@@ -82,38 +83,24 @@ export default function AboutPage() {
                   <h3 className="mt-5 text-3xl font-semibold tracking-tight text-text md:text-4xl">{member.name}</h3>
                   <p className="mt-3 font-mono text-[11px] tracking-[0.2em] text-text-secondary uppercase">{member.role}</p>
 
-                  <ul className="mt-8 flex flex-wrap gap-2">
+                  {/* Directly under name and role — the profile links are the
+                      most useful thing in the row, so they come before the
+                      tags rather than trailing after them. */}
+                  <ul className="mt-7 flex flex-wrap gap-3">
+                    {member.links.map((link, i) => (
+                      <li key={link.href}>
+                        <ProfileLink kind={link.kind} label={link.label} href={link.href} owner={member.name} order={i} />
+                      </li>
+                    ))}
+                  </ul>
+
+                  <ul className="mt-7 flex flex-wrap gap-2">
                     {member.focus.map((area) => (
                       <li
                         key={area}
                         className="rounded-sm border border-border px-3 py-1.5 font-mono text-[10px] tracking-[0.15em] text-text-secondary uppercase"
                       >
                         {area}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-                    {member.links.map((link) => (
-                      <li key={link.href}>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-cursor="view"
-                          // "LinkedIn" alone repeats three times on the page; a
-                          // screen reader listing links needs whose it is.
-                          aria-label={`${member.name} — ${link.label}`}
-                          className="cw-focus-ring group inline-flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text uppercase transition-colors hover:text-accent"
-                        >
-                          {link.label}
-                          <span
-                            aria-hidden
-                            className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1 group-hover:-translate-y-1"
-                          >
-                            ↗
-                          </span>
-                        </a>
                       </li>
                     ))}
                   </ul>
