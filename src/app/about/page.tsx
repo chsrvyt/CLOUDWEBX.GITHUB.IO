@@ -11,7 +11,7 @@ import { CAMPUS } from "@/lib/constants/campus";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "CloudWeb Technologies is an engineering-focused company working across AI, software, cybersecurity and infrastructure — and the team behind Campus.",
+    "CloudWebX Technologies is an engineering-focused company working across AI, software, cybersecurity and infrastructure — and the team behind Campus.",
   alternates: { canonical: "/about" },
 };
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <section className="relative cw-container pt-40 pb-20 md:pt-48">
         <span className="cw-tick absolute top-32 left-6 hidden lg:block" aria-hidden />
 
-        <p className="mb-6 font-mono text-[11px] tracking-[0.3em] text-accent uppercase">About / CloudWeb</p>
+        <p className="mb-6 font-mono text-[11px] tracking-[0.3em] text-accent uppercase">About / CloudWebX</p>
 
         <h1 className="font-display max-w-4xl text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.96] font-semibold tracking-tight text-text">
           We build what

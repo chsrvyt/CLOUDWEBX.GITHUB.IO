@@ -1,4 +1,4 @@
-/** Campus LMS — CloudWeb's flagship product and the company's live MVP,
+/** Campus LMS — CloudWebX's flagship product and the company's live MVP,
  *  running at campus.cloudwebx.in. Unlike WORK_ITEMS (deliberately labeled
  *  conceptual), everything here is real and shipped, so it carries a live
  *  URL and is presented as proof rather than as a proposal. Content mirrors
@@ -97,9 +97,9 @@ export const CAMPUS_SYMBIOSIS: CampusProofItem[] = [
   {
     id: "symbiosis-tested",
     src: "/campus/symbiosis-nagpur-tested.jpg",
-    alt: "Final year students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, under a banner reading 'Final year test performed on our platform' and a panel giving the date, 23 September 2026.",
+    alt: "Final year students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWebX staff observe, under a banner reading 'Final year test performed on our platform' and a panel giving the date, 23 September 2026.",
     title: "Tested on site",
-    caption: "23 September 2026, Nagpur — final year students sitting a live, locked-down test on Campus, with the CloudWeb team in the room.",
+    caption: "23 September 2026, Nagpur — final year students sitting a live, locked-down test on Campus, with the CloudWebX team in the room.",
   },
   {
     id: "symbiosis-hall",
@@ -122,7 +122,7 @@ export const CAMPUS_MILESTONES: CampusProofItem[] = [
   {
     id: "softronix",
     src: "/campus/softronix-partnership.jpg",
-    alt: "Representatives of CloudWeb and Softronix standing together at the Softronix office, holding the signed partnership agreement, under a 'Partnership secured' banner.",
+    alt: "Representatives of CloudWebX and Softronix standing together at the Softronix office, holding the signed partnership agreement, under a 'Partnership secured' banner.",
     title: "Softronix partnership",
     caption: "Agreement signed with Softronix, extending Campus to their training and placement programmes.",
   },

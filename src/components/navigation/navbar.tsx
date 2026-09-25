@@ -43,7 +43,7 @@ export function Navbar() {
         <nav className="cw-container flex items-center justify-between">
           <SmoothLink href="#top" className="cw-focus-ring flex items-center gap-2.5 rounded" data-cursor="view">
             <LogoMark className="size-5 text-text" />
-            <span className="font-mono text-[13px] tracking-[0.28em] text-text uppercase">CloudWeb</span>
+            <span className="font-mono text-[13px] tracking-[0.28em] text-text uppercase">CloudWebX</span>
           </SmoothLink>
 
           <div className="hidden items-center gap-8 lg:flex">
@@ -107,7 +107,7 @@ export function Navbar() {
             transition={{ duration: 0.3 }}
           >
             <div className="cw-container flex items-center justify-between py-6">
-              <span className="font-mono text-[13px] tracking-[0.28em] text-text uppercase">CloudWeb</span>
+              <span className="font-mono text-[13px] tracking-[0.28em] text-text uppercase">CloudWebX</span>
               <button type="button" onClick={() => setMenuOpen(false)} className="cw-focus-ring rounded p-1 font-mono text-xs tracking-widest text-text-secondary uppercase" aria-label="Close menu">
                 Close
               </button>

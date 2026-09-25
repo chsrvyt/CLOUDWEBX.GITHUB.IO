@@ -1,4 +1,4 @@
-/** The 3 domains CloudWeb operates in — replaces the old flat 7-capability
+/** The 3 domains CloudWebX operates in — replaces the old flat 7-capability
  *  list (AI/LLM/Agents/Security/Software/Infrastructure/Automation) with a
  *  broader taxonomy per the revised IA: each domain is one large row, not
  *  a near-identical section of its own. */

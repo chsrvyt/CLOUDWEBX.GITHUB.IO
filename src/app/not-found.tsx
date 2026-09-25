@@ -4,9 +4,9 @@ import { NAV_LINKS, CONTACT_LINK, SITE } from "@/lib/constants/nav";
 import { CAMPUS } from "@/lib/constants/campus";
 
 export const metadata: Metadata = {
-  // The root layout's template appends "| CloudWeb" — don't repeat it here.
+  // The root layout's template appends "| CloudWebX" — don't repeat it here.
   title: "404 — Page not found",
-  description: "That page doesn't exist. Everything CloudWeb builds is one level up.",
+  description: "That page doesn't exist. Everything CloudWebX builds is one level up.",
 };
 
 /** Custom 404. Written in the site's own language — the mono status line, the
@@ -26,7 +26,7 @@ export default function NotFound() {
       </h1>
 
       <p className="mt-8 max-w-md font-mono text-[11px] leading-relaxed tracking-[0.05em] text-text-secondary uppercase">
-        The address resolved, the page did not. Everything CloudWeb builds is listed below.
+        The address resolved, the page did not. Everything CloudWebX builds is listed below.
       </p>
 
       <nav aria-label="Site sections" className="mt-16 border-t border-border">

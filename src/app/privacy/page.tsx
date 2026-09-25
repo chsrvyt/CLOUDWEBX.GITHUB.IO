@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How CloudWeb handles information on cloudwebx.in and in Campus — what is collected, how it is used, who can see it and how long it is kept.",
+    "How CloudWebX handles information on cloudwebx.in and in Campus — what is collected, how it is used, who can see it and how long it is kept.",
   alternates: { canonical: "/privacy" },
 };
 

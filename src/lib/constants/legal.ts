@@ -1,6 +1,6 @@
 /** Legal copy for /terms and /privacy.
  *
- *  Taken from CloudWeb's own documents: the Campus Terms of Use & Privacy
+ *  Taken from CloudWebX's own documents: the Campus Terms of Use & Privacy
  *  Policy (version 2026-09-24) and the Client Terms & Conditions and Software
  *  Development Agreement. The wording is reproduced rather than paraphrased —
  *  this is the text people have signed and accepted, and a friendlier summary
@@ -12,8 +12,8 @@
  *  of that is publishable on a public page. */
 
 export const LEGAL_ENTITY = {
-  name: "CloudWeb Technologies",
-  short: "CloudWeb",
+  name: "CloudWebX Technologies",
+  short: "CloudWebX",
   email: "hello@cloudweb.me",
   phone: "7387387616",
   instagram: "cloud_web",
@@ -33,7 +33,7 @@ export interface LegalSection {
 }
 
 export const CAMPUS_INTRO: LegalBlock[] = [
-  'Campus is a learning, practice and assessment platform developed and operated by CloudWeb Technologies ("CloudWeb", "we", "us") and provided to you through your college or institute ("your institution").',
+  'Campus is a learning, practice and assessment platform developed and operated by CloudWebX Technologies ("CloudWebX", "we", "us") and provided to you through your college or institute ("your institution").',
   'These terms apply to everyone who signs in to Campus: students, teachers and institute administrators ("you").',
   'By selecting "I agree" you confirm that you have read, understood and accepted these Terms of Use and the Privacy Policy below. If you do not agree, you cannot use Campus.',
 ];
@@ -91,16 +91,16 @@ export const CAMPUS_TERMS: LegalSection[] = [
     number: "5",
     title: "Intellectual property",
     blocks: [
-      "Campus, including its software, source code, designs, lessons, question banks, tests, templates and documentation, is owned by CloudWeb or its licensors, or by your institution for content it provides.",
+      "Campus, including its software, source code, designs, lessons, question banks, tests, templates and documentation, is owned by CloudWebX or its licensors, or by your institution for content it provides.",
       "You must not copy, reproduce, resell, redistribute, publish, transfer, reverse engineer or commercially exploit any part of Campus or its content without prior written permission.",
-      "The answers and code you submit remain your work. You allow CloudWeb and your institution to store, process and display them for teaching, assessment, integrity checks and record-keeping.",
+      "The answers and code you submit remain your work. You allow CloudWebX and your institution to store, process and display them for teaching, assessment, integrity checks and record-keeping.",
     ],
   },
   {
     number: "6",
     title: "Content you submit",
     blocks: [
-      "You are responsible for making sure that anything you upload or submit is your own work or that you are authorized to use it. CloudWeb is not responsible for copyright or intellectual-property claims arising from material you supply.",
+      "You are responsible for making sure that anything you upload or submit is your own work or that you are authorized to use it. CloudWebX is not responsible for copyright or intellectual-property claims arising from material you supply.",
     ],
   },
   {
@@ -131,20 +131,20 @@ export const CAMPUS_TERMS: LegalSection[] = [
       [
         "You can see your own work, results and progress.",
         "Your teachers and your institution's administrators can see the information of students in their college, including test results and integrity flags.",
-        "CloudWeb's platform administrators can access information to operate, secure and support Campus.",
+        "CloudWebX's platform administrators can access information to operate, secure and support Campus.",
         "Service providers that host or run parts of Campus (such as servers and code-execution services) process data on our behalf and only for that purpose.",
         "We may disclose information where required by law, or to investigate misuse or unauthorized access.",
       ],
-      "CloudWeb may show screenshots of Campus, general information about the platform and aggregated, non-identifying statistics in its portfolio and promotional material. It will never publish your personal data or your individual results in a way that identifies you.",
+      "CloudWebX may show screenshots of Campus, general information about the platform and aggregated, non-identifying statistics in its portfolio and promotional material. It will never publish your personal data or your individual results in a way that identifies you.",
     ],
   },
   {
     number: "10",
     title: "Privacy Policy: storage, security and retention",
     blocks: [
-      "CloudWeb takes reasonable technical measures to protect the data under its control. However, no internet-connected system can be guaranteed to be completely secure.",
+      "CloudWebX takes reasonable technical measures to protect the data under its control. However, no internet-connected system can be guaranteed to be completely secure.",
       "Your information is kept while your account is active and for as long as your institution requires it. When your institution removes your account, your data is deleted, except for records of your acceptance of these terms and security logs, which we keep as evidence. Backups are overwritten over time.",
-      "You can ask your institution, or CloudWeb at the address below, to access or correct your information, in line with applicable Indian law, including the Digital Personal Data Protection Act, 2023.",
+      "You can ask your institution, or CloudWebX at the address below, to access or correct your information, in line with applicable Indian law, including the Digital Personal Data Protection Act, 2023.",
     ],
   },
   {
@@ -158,7 +158,7 @@ export const CAMPUS_TERMS: LegalSection[] = [
     number: "12",
     title: "Third-party services",
     blocks: [
-      "Campus relies on third-party services such as hosting providers, cloud infrastructure, code-execution services, domain providers and email services. CloudWeb is not responsible for interruptions, policy changes, suspensions, failures or technical issues caused by those providers.",
+      "Campus relies on third-party services such as hosting providers, cloud infrastructure, code-execution services, domain providers and email services. CloudWebX is not responsible for interruptions, policy changes, suspensions, failures or technical issues caused by those providers.",
     ],
   },
   {
@@ -166,15 +166,15 @@ export const CAMPUS_TERMS: LegalSection[] = [
     title: "Availability and limitation of liability",
     blocks: [
       "We work to keep Campus available, but it may be interrupted for maintenance, updates or reasons outside our control.",
-      "CloudWeb is not responsible for indirect, incidental, special or consequential losses arising from circumstances outside its reasonable control, including third-party service failures, server or hosting issues, internet or network failures, domain problems, API changes, or unauthorized actions by users or third parties.",
-      "CloudWeb is not responsible for delays or failures caused by events beyond its reasonable control, including natural disasters, war, government restrictions, major internet outages, power failures, cyber incidents or other unforeseen events.",
+      "CloudWebX is not responsible for indirect, incidental, special or consequential losses arising from circumstances outside its reasonable control, including third-party service failures, server or hosting issues, internet or network failures, domain problems, API changes, or unauthorized actions by users or third parties.",
+      "CloudWebX is not responsible for delays or failures caused by events beyond its reasonable control, including natural disasters, war, government restrictions, major internet outages, power failures, cyber incidents or other unforeseen events.",
     ],
   },
   {
     number: "14",
     title: "Suspension and termination",
     blocks: [
-      "Your institution or CloudWeb may suspend or remove your access if you break these terms or your institution's rules, or when your institution's use of Campus ends. The obligations on confidentiality, intellectual property and misuse continue after your access ends.",
+      "Your institution or CloudWebX may suspend or remove your access if you break these terms or your institution's rules, or when your institution's use of Campus ends. The obligations on confidentiality, intellectual property and misuse continue after your access ends.",
     ],
   },
   {
@@ -196,7 +196,7 @@ export const CAMPUS_TERMS: LegalSection[] = [
     title: "Contact",
     blocks: [
       `For questions about these terms or your data, contact ${LEGAL_ENTITY.name} at ${LEGAL_ENTITY.email} or ${LEGAL_ENTITY.phone}.`,
-      "If any violation of the above terms and conditions is identified, noticed, logged or recorded, CloudWeb reserves the right to take appropriate legal action against the responsible person or party in accordance with applicable laws.",
+      "If any violation of the above terms and conditions is identified, noticed, logged or recorded, CloudWebX reserves the right to take appropriate legal action against the responsible person or party in accordance with applicable laws.",
     ],
   },
 ];
@@ -205,7 +205,7 @@ export const CAMPUS_TERMS: LegalSection[] = [
 export const CAMPUS_PRIVACY_NUMBERS = ["7", "8", "9", "10"];
 
 export const CLIENT_TERMS_INTRO: LegalBlock[] = [
-  'This Agreement is entered into between CloudWeb ("Service Provider") and the Client ("Client") for the development, deployment, delivery, and support of software, websites, mobile applications, LMS platforms, management systems, and other digital solutions.',
+  'This Agreement is entered into between CloudWebX ("Service Provider") and the Client ("Client") for the development, deployment, delivery, and support of software, websites, mobile applications, LMS platforms, management systems, and other digital solutions.',
   "By signing this Agreement, both parties agree to the following terms and conditions.",
 ];
 
@@ -214,7 +214,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "1",
     title: "Project scope",
     blocks: [
-      "CloudWeb will develop and deliver the project according to the mutually agreed requirements, features, scope of work, quotation, and timeline.",
+      "CloudWebX will develop and deliver the project according to the mutually agreed requirements, features, scope of work, quotation, and timeline.",
       "Any feature, functionality, integration, or modification outside the agreed scope may be considered an additional requirement and may involve additional charges and development time.",
     ],
   },
@@ -231,7 +231,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     title: "Payment terms",
     blocks: [
       "The Client agrees to make payments according to the payment schedule mentioned in the quotation or mutually agreed terms.",
-      "CloudWeb may temporarily suspend development, deployment, support, or access to certain services if agreed payments remain outstanding.",
+      "CloudWebX may temporarily suspend development, deployment, support, or access to certain services if agreed payments remain outstanding.",
     ],
   },
   {
@@ -245,7 +245,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "5",
     title: "Delivery and deployment",
     blocks: [
-      "CloudWeb will deliver and deploy the project according to the agreed scope and deployment arrangement.",
+      "CloudWebX will deliver and deploy the project according to the agreed scope and deployment arrangement.",
       "The project will be considered delivered once the agreed core functionality has been completed and made available to the Client.",
     ],
   },
@@ -253,7 +253,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "6",
     title: "Bug fixing and support",
     blocks: [
-      "CloudWeb will provide bug-fixing and technical support according to the support period mentioned in the quotation or agreement.",
+      "CloudWebX will provide bug-fixing and technical support according to the support period mentioned in the quotation or agreement.",
       "Bug fixing does not include new features, major changes, redesigns, or functionality requested after completion unless otherwise agreed.",
     ],
   },
@@ -261,8 +261,8 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "7",
     title: "Client-provided server or hosting",
     blocks: [
-      "If the Client provides or arranges the server, hosting, cloud infrastructure, domain, or other third-party infrastructure, CloudWeb will not be responsible for any downtime, server failure, hosting issues, network outages, data-center problems, configuration issues, security incidents, data loss, or other problems arising from such infrastructure.",
-      "CloudWeb may provide reasonable technical assistance where applicable; however, the Client remains responsible for the availability, maintenance, renewal, security, and operation of infrastructure provided by the Client.",
+      "If the Client provides or arranges the server, hosting, cloud infrastructure, domain, or other third-party infrastructure, CloudWebX will not be responsible for any downtime, server failure, hosting issues, network outages, data-center problems, configuration issues, security incidents, data loss, or other problems arising from such infrastructure.",
+      "CloudWebX may provide reasonable technical assistance where applicable; however, the Client remains responsible for the availability, maintenance, renewal, security, and operation of infrastructure provided by the Client.",
     ],
   },
   {
@@ -270,22 +270,22 @@ export const CLIENT_TERMS: LegalSection[] = [
     title: "Third-party services",
     blocks: [
       "The project may use third-party services such as hosting providers, APIs, payment gateways, cloud services, databases, domain providers, email services, or other external platforms.",
-      "CloudWeb will not be responsible for service interruptions, policy changes, pricing changes, suspension, failures, or technical issues caused by such third-party providers.",
+      "CloudWebX will not be responsible for service interruptions, policy changes, pricing changes, suspension, failures, or technical issues caused by such third-party providers.",
     ],
   },
   {
     number: "9",
     title: "Advertisement and promotional rights",
     blocks: [
-      "CloudWeb may use screenshots, designs, general project information, or non-confidential portions of the completed project for its portfolio, website, social media, presentations, advertisements, and promotional purposes.",
-      "CloudWeb will not intentionally disclose confidential information, passwords, sensitive personal data, or other confidential Client information.",
+      "CloudWebX may use screenshots, designs, general project information, or non-confidential portions of the completed project for its portfolio, website, social media, presentations, advertisements, and promotional purposes.",
+      "CloudWebX will not intentionally disclose confidential information, passwords, sensitive personal data, or other confidential Client information.",
     ],
   },
   {
     number: "10",
     title: "Use of Client name and logo",
     blocks: [
-      "CloudWeb may mention the Client's name, organization name, logo, and project name as a client or reference in its portfolio, website, presentations, proposals, social media, and marketing materials.",
+      "CloudWebX may mention the Client's name, organization name, logo, and project name as a client or reference in its portfolio, website, presentations, proposals, social media, and marketing materials.",
       "Any restriction on such use should be communicated and mutually agreed in writing.",
     ],
   },
@@ -294,7 +294,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     title: "Intellectual property",
     blocks: [
       "Client-specific content, branding, business information, and materials provided by the Client remain the Client's property.",
-      "CloudWeb retains ownership of its pre-existing code, reusable components, frameworks, libraries, templates, development tools, methodologies, and other proprietary technologies.",
+      "CloudWebX retains ownership of its pre-existing code, reusable components, frameworks, libraries, templates, development tools, methodologies, and other proprietary technologies.",
       "Ownership or transfer of the final source code and project intellectual property will be subject to the terms specified in the quotation or separate written agreement.",
     ],
   },
@@ -302,15 +302,15 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "12",
     title: "Unauthorized copying and distribution",
     blocks: [
-      "The Client shall not copy, reproduce, resell, redistribute, publish, transfer, reverse engineer, or commercially exploit CloudWeb's proprietary source code, templates, components, designs, frameworks, documentation, or other intellectual property without prior written permission, except where such rights have been expressly granted.",
+      "The Client shall not copy, reproduce, resell, redistribute, publish, transfer, reverse engineer, or commercially exploit CloudWebX's proprietary source code, templates, components, designs, frameworks, documentation, or other intellectual property without prior written permission, except where such rights have been expressly granted.",
     ],
   },
   {
     number: "13",
     title: "Client content and copyright",
     blocks: [
-      "The Client is responsible for ensuring that all content, images, videos, documents, logos, trademarks, data, and other materials provided to CloudWeb are legally owned, licensed, or authorized for use.",
-      "CloudWeb will not be responsible for copyright or intellectual-property claims arising from materials supplied by the Client.",
+      "The Client is responsible for ensuring that all content, images, videos, documents, logos, trademarks, data, and other materials provided to CloudWebX are legally owned, licensed, or authorized for use.",
+      "CloudWebX will not be responsible for copyright or intellectual-property claims arising from materials supplied by the Client.",
     ],
   },
   {
@@ -324,7 +324,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "15",
     title: "Data and security",
     blocks: [
-      "CloudWeb will take reasonable technical measures to protect project data under its control.",
+      "CloudWebX will take reasonable technical measures to protect project data under its control.",
       "However, no internet-connected system can be guaranteed to be completely secure. The Client is responsible for maintaining the confidentiality of its passwords, accounts, and access credentials.",
     ],
   },
@@ -339,7 +339,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "17",
     title: "Limitation of liability",
     blocks: [
-      "CloudWeb will not be responsible for indirect, incidental, special, or consequential losses arising from circumstances outside CloudWeb's reasonable control, including third-party service failures, server or hosting issues, internet or network failures, domain problems, API changes, payment gateway issues, or unauthorized actions by users or third parties.",
+      "CloudWebX will not be responsible for indirect, incidental, special, or consequential losses arising from circumstances outside CloudWebX's reasonable control, including third-party service failures, server or hosting issues, internet or network failures, domain problems, API changes, payment gateway issues, or unauthorized actions by users or third parties.",
     ],
   },
   {
@@ -362,7 +362,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     number: "20",
     title: "Force majeure",
     blocks: [
-      "CloudWeb will not be responsible for delays or failure to perform caused by circumstances beyond its reasonable control, including natural disasters, war, government restrictions, major internet outages, power failures, cyber incidents, third-party service failures, or other unforeseen events.",
+      "CloudWebX will not be responsible for delays or failure to perform caused by circumstances beyond its reasonable control, including natural disasters, war, government restrictions, major internet outages, power failures, cyber incidents, third-party service failures, or other unforeseen events.",
     ],
   },
   {
@@ -401,7 +401,7 @@ export const CLIENT_TERMS: LegalSection[] = [
     blocks: [
       "By signing, the Client confirms that they have read, understood, and agreed to all the terms and conditions mentioned in this Agreement.",
       "This Agreement should be read together with the applicable project quotation, scope of work, and payment terms.",
-      "If any violation of the above terms and conditions is identified, noticed, logged, or recorded, CloudWeb reserves the right to take appropriate legal action against the responsible person or party in accordance with applicable laws.",
+      "If any violation of the above terms and conditions is identified, noticed, logged, or recorded, CloudWebX reserves the right to take appropriate legal action against the responsible person or party in accordance with applicable laws.",
     ],
   },
 ];
@@ -415,7 +415,7 @@ export const SITE_PRIVACY: LegalSection[] = [
     number: "A",
     title: "This website",
     blocks: [
-      "This page covers cloudwebx.in, the CloudWeb company website. Campus, the learning platform at campus.cloudwebx.in, is covered by the Campus sections below.",
+      "This page covers cloudwebx.in, the CloudWebX company website. Campus, the learning platform at campus.cloudwebx.in, is covered by the Campus sections below.",
       "The website does not set cookies, does not run analytics or advertising trackers, and does not have accounts to sign in to.",
     ],
   },
@@ -431,7 +431,7 @@ export const SITE_PRIVACY: LegalSection[] = [
     number: "C",
     title: "Hosting and third parties",
     blocks: [
-      "The site is served by a hosting provider and loads fonts from Google Fonts. Those providers may record standard technical request information, such as your IP address, as part of delivering the page. CloudWeb does not control or retain that information.",
+      "The site is served by a hosting provider and loads fonts from Google Fonts. Those providers may record standard technical request information, such as your IP address, as part of delivering the page. CloudWebX does not control or retain that information.",
     ],
   },
   {
