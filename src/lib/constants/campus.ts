@@ -65,7 +65,75 @@ export const CAMPUS_JOURNEY = [
 
 /** Who signs in — the four roles Campus ships with, evidence that it covers a
  *  whole institution rather than a single classroom. */
-export const CAMPUS_ROLES = ["Students", "Teachers", "Institute Admins", "Super Admins"] as const;
+export const CAMPUS_ROLES = [
+  { name: "Students", description: "Learn, practice, and take assessments." },
+  { name: "Teachers", description: "Author content, build tests, track batches." },
+  { name: "Institute Admins", description: "Manage a college's teachers, students and batches." },
+  { name: "Super Admins", description: "Oversee colleges, modules and the question bank." },
+] as const;
+
+/** The languages the playground and coding questions execute for real. */
+export const CAMPUS_LANGUAGES = ["Python", "C", "C++", "Java", "JavaScript"] as const;
+
+/** Photographs of Campus outside the demo. Captions stay to what the pictures
+ *  actually show — no cohort sizes or uptime figures, which aren't ours to
+ *  assert. Files live in public/campus/.
+ *
+ *  Two sets, because they record different things: the final-year test at
+ *  Symbiosis is one event with its own heading, and the partnership and the
+ *  load test are separate milestones that would misread as part of it. */
+export interface CampusProofItem {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+}
+
+/** The final-year test at Symbiosis Institute of Technology, Nagpur. The
+ *  "Final year test" graphic leads: it states the event the section heading
+ *  names, so the carousel opens on the picture that matches it. */
+export const CAMPUS_SYMBIOSIS: CampusProofItem[] = [
+  {
+    id: "symbiosis-tested",
+    src: "/campus/symbiosis-nagpur-tested.jpg",
+    alt: "Final year students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, under a banner reading 'Final year test performed on our platform' and a panel giving the date, 23 September 2026.",
+    title: "Tested on site",
+    caption: "23 September 2026, Nagpur — final year students sitting a live, locked-down test on Campus, with the CloudWeb team in the room.",
+  },
+  {
+    id: "symbiosis-hall",
+    src: "/campus/symbiosis-nagpur-hall.jpg",
+    alt: "A tiered lecture hall at Symbiosis Institute of Technology, Nagpur, filled with students working on laptops during a session on Campus.",
+    title: "Symbiosis Institute of Technology, Nagpur",
+    caption: "A full hall on Campus at once — the platform run with a real cohort in a real classroom, not a demo.",
+  },
+  {
+    id: "symbiosis-cohort",
+    src: "/campus/symbiosis-nagpur-cohort.jpg",
+    alt: "Students seated across the tiered desks of the Symbiosis Institute of Technology lecture hall, laptops open, staff standing at the front.",
+    title: "A cohort at work",
+    caption: "Every seat signed in and working through the same session, supervised from the front of the room.",
+  },
+];
+
+/** Milestones outside that event. */
+export const CAMPUS_MILESTONES: CampusProofItem[] = [
+  {
+    id: "softronix",
+    src: "/campus/softronix-partnership.jpg",
+    alt: "Representatives of CloudWeb and Softronix standing together at the Softronix office, holding the signed partnership agreement, under a 'Partnership secured' banner.",
+    title: "Softronix partnership",
+    caption: "Agreement signed with Softronix, extending Campus to their training and placement programmes.",
+  },
+  {
+    id: "load-test",
+    src: "/campus/campus-load-test.jpg",
+    alt: "Three laptops side by side: Campus open at the assigned tests page, a monitoring dashboard showing CPU usage and requests per second, and a sign-in screen.",
+    title: "Under load",
+    caption: "Campus beside its own monitoring — CPU and request throughput watched while the platform is stress-tested.",
+  },
+];
 
 /** The lesson-view mode strip, mirrored in the product mock. */
 export const CAMPUS_MODES = ["Understand", "Visualize", "Try", "Apply"] as const;

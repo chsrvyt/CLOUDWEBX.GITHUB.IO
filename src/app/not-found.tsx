@@ -15,7 +15,7 @@ export const metadata: Metadata = {
  *  that does exist instead of a lone "go home" button. */
 export default function NotFound() {
   return (
-    <section className="cw-container flex min-h-screen flex-col justify-center py-32">
+    <section className="relative cw-container flex min-h-screen flex-col justify-center py-32">
       <span className="cw-tick absolute top-28 left-6 hidden lg:block" aria-hidden />
 
       <p className="mb-6 font-mono text-[11px] tracking-[0.3em] text-accent uppercase">Error / 404</p>

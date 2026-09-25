@@ -244,6 +244,108 @@ body {
   touch-action: none;
 }
 
+/* Idle sheen for high-priority buttons (about/profile-link.tsx): a soft band
+   of light crosses the button, then rests, so it reads as live without being
+   hovered. Most of each cycle is still — a constant shimmer would be noise.
+   Hidden while hovered or focused, when the accent fill takes over. The
+   reduced-motion rule below collapses it to a single instant pass that ends
+   off the edge, i.e. invisible. */
+.cw-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.16) 50%, transparent 65%);
+  transform: translateX(-110%);
+  animation: cw-sheen 5s var(--cw-ease-in-out) infinite;
+  pointer-events: none;
+}
+.cw-sheen:hover::after,
+.cw-sheen:focus-visible::after {
+  opacity: 0;
+}
+@keyframes cw-sheen {
+  0%,
+  65% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+/* Golden lettering with the same passing shine as .cw-sheen, for featured
+   links set as large type (the mobile menu), where a bordered pill would be
+   clumsy. The gradient is wider than the text, so both resting positions show
+   plain gold and only the pass in between carries the highlight — which also
+   means the reduced-motion rule, by skipping straight to the end, leaves it
+   plain gold rather than frozen mid-shine. */
+.cw-gold-text {
+  background: linear-gradient(
+    100deg,
+    var(--cw-accent-text) 0%,
+    var(--cw-accent-text) 40%,
+    #fff1dc 50%,
+    var(--cw-accent-text) 60%,
+    var(--cw-accent-text) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cw-gold-text 5s var(--cw-ease-in-out) infinite;
+}
+@keyframes cw-gold-text {
+  0%,
+  65% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+/* Forced-colours modes (Windows High Contrast) drop background images, which
+   would leave transparent, invisible text. Hand the colour back. */
+@media (forced-colors: active) {
+  .cw-gold-text {
+    background: none;
+    color: LinkText;
+  }
+}
+
+/* Scroll-driven entrance for high-priority buttons (about/profile-link.tsx):
+   rises in as it enters the viewport, driven by scroll position rather than
+   script, so it needs no JS and no animation frames on the main thread. Each
+   button's --cw-rise-order pushes its range a little later for a stagger.
+
+   Only applied where scroll timelines exist; elsewhere the button is simply
+   there, which is the point — it must never depend on an animation to be
+   visible. */
+@supports (animation-timeline: view()) {
+  .cw-rise {
+    animation: cw-rise linear both;
+    animation-timeline: view();
+    animation-range: entry calc(5% + var(--cw-rise-order, 0) * 12%) cover calc(22% + var(--cw-rise-order, 0) * 12%);
+  }
+}
+@keyframes cw-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Scroll timelines ignore a shortened duration, so the entrance has to be
+     switched off outright rather than relying on the rule below. */
+  .cw-rise {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

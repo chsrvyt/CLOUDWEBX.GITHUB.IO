@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { SmoothLink } from "@/components/shared/smooth-link";
 import { LogoMark } from "@/components/shared/logo-mark";
+import { COMPANY_LINKS } from "@/lib/constants/nav";
 import { NAV_LINKS, CONTACT_LINK, SITE, PILLARS } from "@/lib/constants/nav";
 import { CAMPUS } from "@/lib/constants/campus";
 
@@ -42,11 +44,24 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-4 mt-10 md:col-span-3 md:mt-0">
+          <div className="col-span-4 mt-10 md:col-span-2 md:mt-0">
             <p className="mb-4 font-mono text-[10px] tracking-[0.2em] text-text-secondary uppercase">Contact</p>
             <a href={`mailto:${SITE.email}`} className="cw-focus-ring rounded font-mono text-[11px] tracking-[0.1em] text-text-secondary uppercase transition-colors hover:text-text">
               {SITE.email}
             </a>
+          </div>
+
+          <div className="col-span-4 mt-10 md:col-span-2 md:mt-0">
+            <p className="mb-4 font-mono text-[10px] tracking-[0.2em] text-text-secondary uppercase">Company</p>
+            <ul className="flex flex-col gap-2">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="cw-focus-ring rounded font-mono text-[11px] tracking-[0.1em] text-text-secondary uppercase transition-colors hover:text-text">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
