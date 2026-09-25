@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer } from "@/components/footer/footer";
 import { ProductMock } from "@/components/campus/product-mock";
 import { Magnetic } from "@/components/shared/magnetic";
+import { GoldButton } from "@/components/shared/gold-button";
 import { Coverflow } from "@/components/shared/coverflow";
 import {
   CAMPUS,
@@ -172,18 +173,9 @@ export default function CampusPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <Magnetic strength={0.2}>
-                <a
-                  href={CAMPUS.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor="view"
-                  className="cw-focus-ring group inline-flex items-center gap-3 rounded border border-border-strong px-5 py-3 font-mono text-[11px] tracking-[0.15em] text-text uppercase transition-colors duration-300 ease-[var(--cw-ease)] hover:border-accent hover:text-accent"
-                >
-                  Open Campus
-                  <span className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-                </a>
-              </Magnetic>
+              <GoldButton href={CAMPUS.href} external arrow="↗" rise>
+                Open Campus
+              </GoldButton>
 
               <Link
                 href="/#contact"

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { GenerativeGlow } from "@/components/shared/generative-glow";
 import { SmoothLink } from "@/components/shared/smooth-link";
-import { Magnetic } from "@/components/shared/magnetic";
+import { GoldButton } from "@/components/shared/gold-button";
 import { SectionProgress } from "@/components/hero/section-progress";
 import { RevealLines } from "@/lib/animations/reveal";
 import { ScrambleOnView } from "@/lib/animations/scramble-text";
@@ -48,12 +48,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4"
             >
-              <Magnetic strength={0.25}>
-                <SmoothLink href="#contact" data-cursor="view" className="cw-focus-ring group flex items-center gap-2 rounded font-mono text-[11px] font-medium tracking-[0.15em] text-text uppercase">
-                  Start a project
-                  <span className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-x-1">↗</span>
-                </SmoothLink>
-              </Magnetic>
+              <GoldButton href="#contact">Start a project</GoldButton>
               <SmoothLink href="#capabilities" data-cursor="view" className="cw-focus-ring group flex items-center gap-2 rounded font-mono text-[11px] tracking-[0.15em] text-text-secondary uppercase transition-colors hover:text-text">
                 Explore capabilities
                 <span className="transition-transform duration-300 ease-[var(--cw-ease)] group-hover:translate-y-1">↓</span>
