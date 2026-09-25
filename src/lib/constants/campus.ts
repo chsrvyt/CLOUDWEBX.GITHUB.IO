@@ -90,25 +90,39 @@ export interface CampusProofItem {
 
 export const CAMPUS_PROOF: CampusProofItem[] = [
   {
-    id: "symbiosis",
-    src: "/campus/symbiosis-nagpur.jpg",
-    alt: "A lecture hall of students at Symbiosis Institute of Technology, Nagpur, sitting a test on laptops while two CloudWeb staff observe.",
+    id: "symbiosis-hall",
+    src: "/campus/symbiosis-nagpur-hall.jpg",
+    alt: "A tiered lecture hall at Symbiosis Institute of Technology, Nagpur, filled with students working on laptops during a session on Campus.",
     title: "Symbiosis Institute of Technology, Nagpur",
-    caption: "A full cohort sitting a live, locked-down test on Campus — the platform run in a real classroom rather than a demo.",
+    caption: "A full hall on Campus at once — the platform run with a real cohort in a real classroom, not a demo.",
+  },
+  {
+    id: "symbiosis-cohort",
+    src: "/campus/symbiosis-nagpur-cohort.jpg",
+    alt: "Students seated across the tiered desks of the Symbiosis Institute of Technology lecture hall, laptops open, staff standing at the front.",
+    title: "A cohort at work",
+    caption: "Every seat signed in and working through the same session, supervised from the front of the room.",
+  },
+  {
+    id: "symbiosis-tested",
+    src: "/campus/symbiosis-nagpur-tested.jpg",
+    alt: "Students at Symbiosis Institute of Technology, Nagpur taking a test on laptops while two CloudWeb staff observe, with a geotagged camera stamp showing the date and location.",
+    title: "Tested on site",
+    caption: "23 September 2026, Symbiosis College Road, Nagpur — a live locked-down test run with the CloudWeb team in the room.",
   },
   {
     id: "softronix",
     src: "/campus/softronix-partnership.jpg",
-    alt: "Representatives of CloudWeb and Softronix holding the signed partnership agreement at the Softronix office.",
+    alt: "Representatives of CloudWeb and Softronix standing together at the Softronix office, holding the signed partnership agreement.",
     title: "Softronix partnership",
     caption: "Agreement signed with Softronix, extending Campus to their training and placement programmes.",
   },
   {
     id: "load-test",
     src: "/campus/campus-load-test.jpg",
-    alt: "Three laptops side by side: Campus open at the tests page, a monitoring dashboard showing CPU usage and requests per second, and a sign-in screen.",
+    alt: "Three laptops side by side: Campus open at the assigned tests page, a monitoring dashboard showing CPU usage and requests per second, and a sign-in screen.",
     title: "Under load",
-    caption: "Campus alongside its monitoring — CPU and request throughput watched while the platform is stress-tested and tagged.",
+    caption: "Campus beside its own monitoring — CPU and request throughput watched while the platform is stress-tested.",
   },
 ];
 
