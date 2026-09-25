@@ -7,18 +7,22 @@ export interface TeamMember {
   focus: string[];
   /** Awards and experience, set as a list under the bio. */
   highlights?: string[];
+  /** Portrait in public/team/. Until one is supplied the row shows an
+   *  initials monogram in the same frame, so the three rows stay aligned. */
+  photo?: string;
   /** Outbound profiles, in display order. `kind` picks the icon. */
   links: { kind: "linkedin" | "portfolio"; label: string; href: string }[];
 }
 
 /** The three founders. Bios are the founders' own copy, reproduced as supplied
  *  — only markdown emphasis and emoji dropped, which the site's type system
- *  doesn't use. Photographs are still pending. */
+ *  doesn't use. Portraits live in public/team/. */
 export const TEAM: TeamMember[] = [
   {
     index: "01",
     name: "Samir Shendre",
     role: "Founder & CEO",
+    photo: "/team/samir-shendre.jpg",
     bio: [
       "Samir Shendre is a young entrepreneur, technology enthusiast, and CEO & Founder of CloudWebX Technologies. He is currently pursuing B.Tech in Computer Science & Engineering at Symbiosis International University, Nagpur.",
       "He is building and managing three running startups — CloudWebX Technologies, Gleam Cosmetics, and Kalakriti Crochet Art. Through CloudWebX, he works on software development, AI, web/mobile applications, cloud solutions, and digital platforms, including the CloudWebX Campus platform for educational institutions.",
